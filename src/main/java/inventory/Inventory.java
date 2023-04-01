@@ -9,7 +9,8 @@ public class Inventory {
     private Map<Integer, Integer> ingredientsAmounts;
     private Map<Integer, String> ingredientsNames;
     //
-    public Inventory(Map<Integer, Integer> ingredientsAmounts, Map<Integer, String> ingredientsNames){
+    public Inventory(Map<Integer, Integer> ingredientsAmounts,
+                     Map<Integer, String> ingredientsNames){
     this.ingredientsAmounts = ingredientsAmounts;
     this.ingredientsNames = ingredientsNames;
    }
@@ -22,15 +23,14 @@ public class Inventory {
         InitialValuesMethod method = new InitialValuesMethod(ingredientsAmounts,ingredientsNames);
         method.getExcelFileValues();
     }
-  // public static void main(String[] args) throws IOException {
-  //     Map<Integer, Integer> ingredientsAmount = new HashMap<>();
-  //     Map<Integer, String> ingredientsName = new HashMap<>();
-  //     Inventory inventory = new Inventory(ingredientsAmount,ingredientsName);
-  //     InitialValuesMethod method = new InitialValuesMethod(ingredientsAmount,ingredientsName);
-  //     inventory.setAmounts();
-  //     inventory.setNames();
+    public static void main(String[] args) throws IOException {
+        Map<Integer, Integer> ingredientsAmounts = new HashMap<>();
+        Map<Integer, String> ingredientsNames = new HashMap<>();
+        Inventory inventory = new Inventory(ingredientsAmounts,ingredientsNames);
+        inventory.setAmounts();
+        inventory.setNames();
 
-  // }
+    }
 
 
 
