@@ -24,6 +24,10 @@ public class ExcelFileReader {
         this.sheetName = sheetName;
     }
 
+    public ExcelFileReader(Map<Integer, Integer> numericalReader,String sheetName){
+        this.numericalReader = numericalReader;
+        this.sheetName = sheetName;
+    }
 
     public XSSFSheet readSheet(){
         String filePath = "C:\\Users\\User\\IdeaProjects\\FamilyRestaurant\\Inventory.xlsx";

@@ -2,8 +2,8 @@ package menu;
 
 public class Drinks extends Dish {
 
-    public Drinks (String receipt){
-        super(receipt);
+    public Drinks (int receiptID){
+        super(receiptID);
     }
 
 }

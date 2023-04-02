@@ -19,7 +19,7 @@ public class Receipt {
     private String sheetName = "Receipts";
     private ExcelFileReader reader = new ExcelFileReader(receiptAmounts, receiptIngredients, sheetName);
 
-    public Receipt(String name, int receiptID) {
+    public Receipt( int receiptID) {
         this.name = name;
         this.receiptID = receiptID;
     }
@@ -40,11 +40,6 @@ public class Receipt {
         this.receiptID = receiptID;
     }
 
-    // public void getIngredients(Map<Integer, Integer> numericalReader,
-    //                            Map<Integer, String> StringReader){
-    //     ExcelFileReader reader = new ExcelFileReader(numericalReader, StringReader,sheetName);
-    //     reader.
-    // }
     public void selectReceipt(int receiptID) {
         switch (receiptID) {
             case 1: {
@@ -54,12 +49,12 @@ public class Receipt {
             }
             case 2: {
                 firstCell[0] = 1;
-                firstCell[1] = 7;
+                firstCell[1] = 8;
                 break;
             }
             case 3: {
                 firstCell[0] = 1;
-                firstCell[1] = 11;
+                firstCell[1] = 13;
                 break;
             }
             case 4: {
@@ -69,22 +64,22 @@ public class Receipt {
             }
             case 5: {
                 firstCell[0] = 20;
-                firstCell[1] = 7;
+                firstCell[1] = 8;
                 break;
             }
             case 6: {
                 firstCell[0] = 20;
-                firstCell[1] = 11;
+                firstCell[1] = 13;
                 break;
             }
             case 7: {
                 firstCell[0] = 20;
-                firstCell[1] = 15;
+                firstCell[1] = 18;
                 break;
             }
             case 8: {
                 firstCell[0] = 20;
-                firstCell[1] = 19;
+                firstCell[1] = 21;
                 break;
             }
             case 9: {
@@ -94,12 +89,12 @@ public class Receipt {
             }
             case 10: {
                 firstCell[0] = 33;
-                firstCell[1] = 7;
+                firstCell[1] = 8;
                 break;
             }
             case 11: {
                 firstCell[0] = 33;
-                firstCell[1] = 11;
+                firstCell[1] = 13;
                 break;
             }
         }
@@ -127,10 +122,10 @@ public class Receipt {
         return receiptAmounts;
     }
 
-  // public static void main(String[] args) {
-  //     Receipt receipt= new Receipt("Mashed Potatoes, Chicken and Broccoli",2);
-  //     receipt.getReceiptsIngredients();
-  //     receipt.getReceiptsAmounts();
-  // }
+ // public static void main(String[] args) {
+ //     Receipt receipt= new Receipt("Mashed Potatoes, Chicken and Broccoli",2);
+ //     receipt.getReceiptsIngredients();
+ //     receipt.getReceiptsAmounts();
+ // }
 
 }
