@@ -10,12 +10,18 @@ import java.io.IOException;
 import java.util.Map;
 
 public class ExcelFileReader {
+    private String filePath;
+    private String sheetName;
     private Map<Integer, Integer> numericalReader; //numerical reader
     private Map<Integer, String> StringReader; //String reader
+    private int row;
+    private int column;
+
     public ExcelFileReader(Map<Integer, Integer> numericalReader,
-                           Map<Integer, String> StringReader){
+                           Map<Integer, String> StringReader, String sheetName){
         this.numericalReader = numericalReader;
         this.StringReader = StringReader;
+        this.sheetName = sheetName;
     }
 
 
@@ -23,11 +29,11 @@ public class ExcelFileReader {
         String filePath = "C:\\Users\\User\\IdeaProjects\\FamilyRestaurant\\Inventory.xlsx";
         FileInputStream fileInputStream = null;
         XSSFWorkbook xssfWorkbook = null;
-        try {
+        try {  // Review the concept "Fail fast"
             fileInputStream = new FileInputStream(filePath);
             xssfWorkbook = new XSSFWorkbook(fileInputStream);
         } catch (IOException e) {throw new RuntimeException(e);}
-        XSSFSheet inventorySheet = xssfWorkbook.getSheet("WarehouseQuantities");
+        XSSFSheet inventorySheet = xssfWorkbook.getSheet(sheetName);
         return inventorySheet;
     }
     public XSSFCell getCellValue(int rowNumber, int columNumber){
@@ -35,17 +41,17 @@ public class ExcelFileReader {
         return  row.getCell(columNumber);//0 = #column
     }
 
-    public String getIngredientName(int id){
-        return getCellValue(id,0).getStringCellValue();
+    public String getStringValue(int rowNumber, int columNumber){
+        return getCellValue(rowNumber,columNumber).getStringCellValue();
     }
-    public void setIngredientsName(int id, String name) {
-        StringReader.put(id, name);
+    public void setStringValue(int ID, String name) {
+        StringReader.put(ID, name);
     }
 
-    public Integer getIngredientAmount(int id){
-        return Integer.valueOf(getCellValue(id,1).getRawValue());
+    public Integer getNumericalValue(int rowNumber, int columNumber){
+        return Integer.valueOf(getCellValue(rowNumber,columNumber).getRawValue());
     }
-    public void setIngredientsAmount(int id,Integer amount) {
-        numericalReader.put(id,amount);
+    public void setNumericalValue(int ID, Integer amount) {
+        numericalReader.put(ID,amount);
     }
 }

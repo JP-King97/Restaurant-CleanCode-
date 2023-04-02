@@ -15,8 +15,8 @@ public class Dishes {
         this.receipt = receipt;
     }
 
-    public void amountOfIngredients(){
-        //Request from Receipts class
-
+    public void amountOfIngredients(){       //Request from Receipts class
     }
+
+
 }
