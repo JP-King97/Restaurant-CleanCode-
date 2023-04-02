@@ -15,20 +15,20 @@ public class Inventory {
     this.ingredientsNames = ingredientsNames;
    }
     //add the list of ingredients and initialize the amount (Integer) in Zero.
-    public void setNames() {
-        InitialValuesMethod method = new InitialValuesMethod(ingredientsAmounts,ingredientsNames);
-        method.getExcelFileValues();
-    }
+  // public void setNames() {
+  //     InitialValuesMethod method = new InitialValuesMethod(ingredientsAmounts,ingredientsNames);
+  //     method.getRandomValues();
+  // }
     public void setAmounts(){
         InitialValuesMethod method = new InitialValuesMethod(ingredientsAmounts,ingredientsNames);
-        method.getExcelFileValues();
+        method.getRandomValues();
     }
     public static void main(String[] args) throws IOException {
         Map<Integer, Integer> ingredientsAmounts = new HashMap<>();
         Map<Integer, String> ingredientsNames = new HashMap<>();
         Inventory inventory = new Inventory(ingredientsAmounts,ingredientsNames);
         inventory.setAmounts();
-        inventory.setNames();
+       // inventory.setNames();
 
     }
 
