@@ -37,7 +37,7 @@ public class ExcelFileReader {
         return inventorySheet;
     }
     public XSSFCell getCellValue(int rowNumber, int columNumber){
-        XSSFRow row =readSheet().getRow(rowNumber+1);// rN+1 due to the location of the data on file
+        XSSFRow row =readSheet().getRow(rowNumber);// rN+1 due to the location of the data on file
         return  row.getCell(columNumber);//0 = #column
     }
 

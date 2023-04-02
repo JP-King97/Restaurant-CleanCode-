@@ -1,6 +1,6 @@
 package menu;
 
-public class Desserts extends Dishes{
+public class Desserts extends Dish {
 
     public Desserts(String receipt){
         super(receipt);

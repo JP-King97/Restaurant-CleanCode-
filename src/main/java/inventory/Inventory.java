@@ -21,7 +21,7 @@ public class Inventory {
   // }
     public void setAmounts(){
         InitialValuesMethod method = new InitialValuesMethod(ingredientsAmounts,ingredientsNames);
-        method.getRandomValues();
+        method.getExcelFileValues();
     }
     public static void main(String[] args) throws IOException {
         Map<Integer, Integer> ingredientsAmounts = new HashMap<>();

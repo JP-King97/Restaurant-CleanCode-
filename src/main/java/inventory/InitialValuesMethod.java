@@ -24,9 +24,9 @@ public class InitialValuesMethod {
     public void getExcelFileValues() {
         ExcelFileReader reader = new ExcelFileReader(ingredientsAmounts, ingredientsNames,sheetName);
         for (int i = 0; i < 36; i++) {
-            reader.setStringValue(i, reader.getStringValue(i,0));
-            reader.setNumericalValue(i, reader.getNumericalValue(i,1));
-            System.out.println("Ingredient: " + reader.getStringValue(i,0) + " -- Quantity: " + reader.getNumericalValue(i,1));
+            reader.setStringValue(i, reader.getStringValue(i+1,0));
+            reader.setNumericalValue(i, reader.getNumericalValue(i+1,1));
+            System.out.println("Ingredient: " + reader.getStringValue(i+1,0) + " -- Quantity: " + reader.getNumericalValue(i+1,1));
         }
     }
 
@@ -34,10 +34,10 @@ public class InitialValuesMethod {
         Random random = new Random();
         ExcelFileReader reader = new ExcelFileReader(ingredientsAmounts, ingredientsNames,sheetName);
         for (int i = 0; i < 36; i++) {
-            reader.setStringValue(i, reader.getStringValue(i,0));
+            reader.setStringValue(i, reader.getStringValue(i+1,0));
             Integer randomNumber = random.nextInt(5000);
-            reader.setNumericalValue(i, reader.getNumericalValue(i,1));
-            System.out.println("Ingredient: " + reader.getStringValue(i,0) + " -- Quantity: " + randomNumber);
+            reader.setNumericalValue(i, reader.getNumericalValue(i+1,1));
+            System.out.println("Ingredient: " + reader.getStringValue(i+1,0) + " -- Quantity: " + randomNumber);
         }
     }
 

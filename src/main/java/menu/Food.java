@@ -1,6 +1,6 @@
 package menu;
 
-public class Food extends Dishes{
+public class Food extends Dish {
     private boolean vegan = false;
     private boolean hot = false;
     //Constructor
