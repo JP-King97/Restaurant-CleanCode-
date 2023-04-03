@@ -1,6 +1,6 @@
 package inventory;
 
-import Data.ExcelFileReader;
+import data.ExcelFileReader;
 
 
 

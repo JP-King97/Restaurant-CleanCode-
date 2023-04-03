@@ -10,4 +10,17 @@ public class Food extends Dish {
         this.hot = hot;
     }
 
+    @Override
+    public int getProductionCost() {
+        productionCost = (int) (getIngredientsTotalPrice()*0.1);
+        if (vegan){
+            productionCost = 400;
+        } else if (hot) {
+            productionCost = (int) (getIngredientsTotalPrice()*0.2);
+        }
+        return productionCost;
+    }
+
+
+
 }

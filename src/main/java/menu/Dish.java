@@ -1,56 +1,38 @@
 package menu;
 
-import Data.ExcelFileReader;
-
-import java.util.HashMap;
 import java.util.Map;
 
-public class Dish {
+public abstract class Dish extends Receipt{
 
-    private Map<Integer, Integer> ingredientPrice = new HashMap<>();
-    private Map<Integer, Integer> ingredientQuantity = new HashMap<>();
-    private String sheetName ="Prices";
-    private int receiptID;
-    ExcelFileReader reader;
-    Receipt receipt;
+    protected int productionCostPercentage;
+    protected int productionCost;
+    protected int sellingPrice;
+    private int ingredientTotalPrice;
     public Dish(int receiptID) {
-        this.receiptID = receiptID;
+        super(receiptID);
     }
 
-    public int getReceiptID() {
-        return receiptID;
+    public int getIngredientsTotalPrice(){
+        Map<Integer,Integer> ingredientUnitPrice = getIngredientUnitPrice();
+        for ( int i=0; i<getNumberOfIngredients();i++){
+            ingredientTotalPrice = ingredientTotalPrice + ingredientUnitPrice.get(i)*getReceiptsAmounts().get(i);
+        }
+        return ingredientTotalPrice;
+    }
+     public abstract int getProductionCost();
+
+    public int getSellingPrice(int productionCost){
+        sellingPrice=productionCost+getIngredientsTotalPrice()+1000;
+        return sellingPrice;
     }
 
-    public void setReceiptID(int receiptID) {
-        this.receiptID = receiptID;
-    }
 
+ //  public static void main(String[] args) {
+ //      int receiptID = 3;
+ //      Dish dish = new Dish(receiptID);
+ //      //dish.getIngredientID();
+ //      dish.getIngredientsTotalPrice();
 
-    /**
-     *
-     * @return
-     */
-    public int numberOfIngredients(){//Request from Receipts class
-        receipt = new Receipt(receiptID);
-        receipt.getReceiptsIngredients();
-        return receipt.getNumberOfIngredients(receiptID);
-    }
-    public Map<Integer,Integer> getIngredientsQuantities(){
-        receipt = new Receipt(receiptID);
-        return receipt.getReceiptsAmounts();
-    }
-
-    public Map<Integer,Integer>  getIngredientPrice(){
-        receipt = new Receipt(receiptID);
-        return receipt.getIngredientPrice();
-    }
-
-  //  public static void main(String[] args) {
-  //      Dish dish = new Dish(3);
-  //      //System.out.println(dish.numberOfIngredients());
-  //      //System.out.println(dish.getIngredientsQuantities());
-  //      dish.getIngredientPrice();
-  //  }
-//
+ //  }
 
 }
