@@ -8,8 +8,11 @@ import java.util.Map;
 public class Dish {
 
     private Map<Integer, Integer> ingredientPrice = new HashMap<>();
+    private Map<Integer, Integer> ingredientQuantity = new HashMap<>();
     private String sheetName ="Prices";
     private int receiptID;
+    ExcelFileReader reader;
+    Receipt receipt;
     public Dish(int receiptID) {
         this.receiptID = receiptID;
     }
@@ -22,28 +25,32 @@ public class Dish {
         this.receiptID = receiptID;
     }
 
+
     /**
      *
      * @return
      */
-    public int amountOfIngredients(){//Request from Receipts class
-        Receipt receipt = new Receipt( receiptID);
+    public int numberOfIngredients(){//Request from Receipts class
+        receipt = new Receipt(receiptID);
         receipt.getReceiptsIngredients();
         return receipt.getNumberOfIngredients(receiptID);
     }
-
-    public void getIngredientPrice(){
-        ExcelFileReader reader = new ExcelFileReader(ingredientPrice,sheetName);
-        for(int i = 0; i<amountOfIngredients();i++){
-            reader.setNumericalValue(i, reader.getNumericalValue(i,1));
-        }
+    public Map<Integer,Integer> getIngredientsQuantities(){
+        receipt = new Receipt(receiptID);
+        return receipt.getReceiptsAmounts();
     }
 
-    public static void main(String[] args) {
-        Dish dish = new Dish(3);
-        int amountOfIngredients = dish.amountOfIngredients();
-        System.out.println(amountOfIngredients);
+    public Map<Integer,Integer>  getIngredientPrice(){
+        receipt = new Receipt(receiptID);
+        return receipt.getIngredientPrice();
     }
 
+  //  public static void main(String[] args) {
+  //      Dish dish = new Dish(3);
+  //      //System.out.println(dish.numberOfIngredients());
+  //      //System.out.println(dish.getIngredientsQuantities());
+  //      dish.getIngredientPrice();
+  //  }
+//
 
 }

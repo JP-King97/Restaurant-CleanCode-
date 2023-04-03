@@ -7,37 +7,18 @@ import java.util.Map;
 
 public class Receipt {
 
-
-    private String name;
-    private String dishType;
     private int receiptID;
-    private int ingredientID;
     // private int numberOfIngredients;
     private int[] firstCell = new int[2]; //firstCell[0]= row; firstCell[1]= column ,
     private Map<Integer, String> receiptIngredients = new HashMap<>();
     private Map<Integer, Integer> receiptAmounts = new HashMap<>();;
+    private Map<Integer, Integer> ingredientPrice = new HashMap<>();
+    private Map<Integer, Integer> ingredientID = new HashMap<>();
     private String sheetName = "Receipts";
-    private ExcelFileReader reader = new ExcelFileReader(receiptAmounts, receiptIngredients, sheetName);
 
     public Receipt( int receiptID) {
-        this.name = name;
         this.receiptID = receiptID;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getReceiptID() {
-        return receiptID;
-    }
-
-    public void setReceiptID(int receiptID) {
-        this.receiptID = receiptID;
+        selectReceipt(receiptID);
     }
 
     public void selectReceipt(int receiptID) {
@@ -101,31 +82,56 @@ public class Receipt {
     }
 
     public int getNumberOfIngredients(int receiptID) {
-        selectReceipt(receiptID);
-        //System.out.println(reader.getNumericalValue(firstCell[0]+1, firstCell[1]));
-        return (reader.getNumericalValue(firstCell[0]+1, firstCell[1])).intValue();
+        ExcelFileReader reader = new ExcelFileReader(receiptAmounts, receiptIngredients, sheetName);
+        return (reader.getNumericalValue(firstCell[0]+1, firstCell[1]));
     }
 
     public Map<Integer, String> getReceiptsIngredients() {
+        ExcelFileReader reader = new ExcelFileReader(receiptAmounts, receiptIngredients, sheetName);
         for (int i = 0; i < getNumberOfIngredients(receiptID); i++){
             receiptIngredients.put(i, reader.getStringValue(firstCell[0] + 4 + i, firstCell[1] - 1));
-            System.out.println("id: "+i+" -- Ingredient: "+(reader.getStringValue(firstCell[0] + 4 + i, firstCell[1] - 1)));
+            //System.out.println("id: "+i+" -- Ingredient: "+(reader.getStringValue(firstCell[0] + 4 + i, firstCell[1] - 1)));
         }
         return receiptIngredients;
     }
 
     public Map<Integer, Integer> getReceiptsAmounts() {
+        ExcelFileReader reader = new ExcelFileReader(receiptAmounts, receiptIngredients, sheetName);
         for (int i = 0; i < getNumberOfIngredients(receiptID); i++) {
             receiptAmounts.put(i, reader.getNumericalValue(firstCell[0] + 4 + i, firstCell[1]));
-            System.out.println("id: "+i+" -- Amount: "+(reader.getNumericalValue(firstCell[0] + 4 + i, firstCell[1])));
+         //   System.out.println("id: "+i+
+         //           " -- Amount: "+(reader.getNumericalValue(firstCell[0] + 4 + i, firstCell[1])));
         }
         return receiptAmounts;
     }
 
- // public static void main(String[] args) {
- //     Receipt receipt= new Receipt("Mashed Potatoes, Chicken and Broccoli",2);
- //     receipt.getReceiptsIngredients();
- //     receipt.getReceiptsAmounts();
+    public Map<Integer, Integer> getIngredientPrice(){
+        ExcelFileReader reader = new ExcelFileReader(ingredientPrice,"Prices");
+        ingredientID = getIngredientID();
+        for(int i = 0; i< getNumberOfIngredients(receiptID); i++){
+                ingredientPrice.put(i,reader.getNumericalValue((ingredientID.get(i))+1,1) );
+       //     System.out.println("Ingredient: " + getReceiptsIngredients().get(i) +
+       //              " -- Unit Price: " + reader.getNumericalValue(ingredientID.get(i)+1,1));
+        }
+        return ingredientPrice;
+    }
+
+    public Map<Integer, Integer> getIngredientID(){
+        ExcelFileReader reader = new ExcelFileReader(ingredientID,sheetName);
+        for( int i=0;i<getNumberOfIngredients(receiptID);i++){
+            reader.setNumericalValue(i,reader.getNumericalValue(firstCell[0]+4+i,firstCell[1]+1));
+    //          System.out.println("Ingredient: " + getReceiptsIngredients().get(i) +
+    //                  " -- ID: " + reader.getNumericalValue(firstCell[0]+4+i,firstCell[1]+1));
+        }
+        return ingredientID;
+    }
+
+ //public static void main(String[] args) {
+ //    Receipt receipt= new Receipt(4);
+ //    receipt.getReceiptsIngredients();
+ //    receipt.getReceiptsAmounts();
+ //    receipt.getIngredientID();
+ //  receipt.getIngredientPrice();
  // }
 
 }
