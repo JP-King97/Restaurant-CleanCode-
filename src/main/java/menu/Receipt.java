@@ -120,9 +120,13 @@ public class Receipt {
         ExcelFileReader reader = new ExcelFileReader(ingredientID,sheetName);
         for( int i=0;i<getNumberOfIngredients();i++){
             reader.setNumericalValue(i,reader.getNumericalValue(firstCell[0]+4+i,firstCell[1]+1));
-                System.out.println("Ingredient: " + getReceiptsIngredients().get(i) +
-                        " -- ID: " + reader.getNumericalValue(firstCell[0]+4+i,firstCell[1]+1));
+       //         System.out.println("Ingredient: " + getReceiptsIngredients().get(i) +
+       //                 " -- ID: " + reader.getNumericalValue(firstCell[0]+4+i,firstCell[1]+1));
         }
+    }
+
+    public void availableReceipts(){
+        //ExcelFileReader reader = new ExcelFileReader()
     }
 
    public static void main(String[] args) {
