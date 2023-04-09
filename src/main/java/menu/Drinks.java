@@ -2,23 +2,27 @@ package menu;
 
 public class Drinks extends Dish {
 
-    private boolean milkshake = false;
-    private boolean juice = false;
-    private boolean alcohol = false;
-    public Drinks (int receiptID){
-        super(receiptID);
+    private int recipeID;
+    public Drinks (int recipeID){
+        super(recipeID);
+        this.recipeID = recipeID;
     }
 
     @Override
     public int getProductionCost() {
-        if(alcohol){
-            productionCost= 400;
-        }else {
-            if (milkshake){
-                productionCostPercentage = 15;
-            } else{ productionCostPercentage = 10;
-            }
-            productionCost = getIngredientsTotalPrice()*productionCostPercentage/100;
+
+        switch (recipeID){
+            case 3:
+                productionCost = (int) (getIngredientsTotalPrice()*0.15);
+                break;
+            case 4,5:
+                productionCost = (int) (getIngredientsTotalPrice()*0.10);
+                break;
+            case 6,7:
+                productionCost = 400;
+                break;
+            default:
+                System.out.println("Drink not founded");
         }
         return productionCost;
     }

@@ -2,20 +2,20 @@ package menu;
 
 import java.util.Map;
 
-public abstract class Dish extends Receipt{
+public abstract class Dish extends Recipe {
 
     protected int productionCostPercentage;
     protected int productionCost;
     protected int sellingPrice;
     private int ingredientTotalPrice;
-    public Dish(int receiptID) {
-        super(receiptID);
+    public Dish(int recipeID) {
+        super(recipeID);
     }
 
     public int getIngredientsTotalPrice(){
         Map<Integer,Integer> ingredientUnitPrice = getIngredientUnitPrice();
         for ( int i=0; i<getNumberOfIngredients();i++){
-            ingredientTotalPrice = ingredientTotalPrice + ingredientUnitPrice.get(i)*getReceiptsAmounts().get(i);
+            ingredientTotalPrice = ingredientTotalPrice + ingredientUnitPrice.get(i)* getRecipesAmounts().get(i);
         }
         return ingredientTotalPrice;
     }

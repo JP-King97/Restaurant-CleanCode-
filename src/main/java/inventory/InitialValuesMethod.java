@@ -1,7 +1,7 @@
 package inventory;
 
 import data.ExcelFileReader;
-
+import data.ExcelFileStringReader;
 
 
 import java.util.Map;
@@ -26,7 +26,7 @@ public class InitialValuesMethod {
         for (int i = 0; i < 36; i++) {
             reader.setStringValue(i, reader.getStringValue(i+1,0));
             reader.setNumericalValue(i, reader.getNumericalValue(i+1,1));
-            System.out.println("Ingredient: " + reader.getStringValue(i+1,0) + " -- Quantity: " + reader.getNumericalValue(i+1,1));
+            //System.out.println("Ingredient: " + reader.getStringValue(i+1,0) + " -- Quantity: " + reader.getNumericalValue(i+1,1));
         }
     }
 
@@ -37,7 +37,7 @@ public class InitialValuesMethod {
             reader.setStringValue(i, reader.getStringValue(i+1,0));
             Integer randomNumber = random.nextInt(5000);
             reader.setNumericalValue(i, reader.getNumericalValue(i+1,1));
-            System.out.println("Ingredient: " + reader.getStringValue(i+1,0) + " -- Quantity: " + randomNumber);
+            //System.out.println("Ingredient: " + reader.getStringValue(i+1,0) + " -- Quantity: " + randomNumber);
         }
     }
 

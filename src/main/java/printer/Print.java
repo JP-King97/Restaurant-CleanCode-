@@ -2,16 +2,22 @@ package printer;
 
 import account.MoneyAccount;
 import inventory.Inventory;
+import menu.Recipe;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Print {
-    private Map<Integer, Integer> numericalMap;
-    private Map<Integer, String> stringMap;
+    private Map<Integer, Integer> numericalMap = new HashMap<>();
+    private Map<Integer, String> stringMap = new HashMap<>();
 
-    public Print() {
+    public Print(Map<Integer, Integer> numericalMap, Map<Integer, String> stringMap) {
+        this.numericalMap = numericalMap;
+        this.stringMap = stringMap;
+    }
 
+    public Print(){
     }
 
     public int mainMenu(Scanner scanner){
@@ -37,22 +43,32 @@ public class Print {
         Inventory inventory = new Inventory(numericalMap,stringMap);
         System.out.printf("%15s||%15s%n","INGREDIENTS","QUANTITIES");
         for (int i=0;i<numericalMap.size();i++){
-            System.out.printf("%15s%15s%n",inventory.getIngredientsNames(),inventory.getIngredientsAmounts());
+            System.out.printf("%15s%15s%n",inventory.getIngredientsNames().get(i),inventory.getIngredientsAmounts().get(i));
         }
+    }
+
+    public void currentRecipeList(){
+        Recipe recipe = new Recipe();
+        System.out.printf("%10s||%20s%n","ID","RECEIPT");
+        for (int i = 0; i< recipe.getNumberOfRecipes(); i++){
+            System.out.printf("%10s||%20s%n",i, recipe.getAvailableReceipts().get(i));;
+        }
+
     }
     public void switchBetweenOptions(){
 
 
     }
 
-    public static void main(String[] args) {
-        Inventory inventory = new Inventory();
-        inventory.setInitialAmounts();
-        Print printer = new Print();
-        Scanner scanner = new Scanner(System.in);
-        int optionSelected = printer.mainMenu(scanner);
-
-    }
+      public static void main(String[] args) {
+           Inventory inventory = new Inventory();
+           inventory.setInitialAmounts();
+           Print printer = new Print();
+           Scanner scanner = new Scanner(System.in);
+           int optionSelected = printer.mainMenu(scanner);
+           printer.currentRecipeList();
+//
+      }
 
 
 }

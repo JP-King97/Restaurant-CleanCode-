@@ -5,12 +5,13 @@ import account.MoneyAccount;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Inventory {
 
-    private Map<Integer, Integer> ingredientsAmounts;
-    private Map<Integer, String> ingredientsNames;
+    private Map<Integer, Integer> ingredientsAmounts = new HashMap<>();
+    private Map<Integer, String> ingredientsNames = new HashMap<>();
     int ingredientID;
     //
     public Inventory(Map<Integer, Integer> ingredientsAmounts,
@@ -61,9 +62,10 @@ public class Inventory {
             System.out.print("continue?:Y or N");
             auxExit = scanner.next();
             //update the inventory
-            updatedAmounts(ingredientID,amount_gr);
+            int currentAmount = getIngredientsAmounts().get(ingredientID);
+            updatedAmounts(ingredientID,(amount_gr+currentAmount));
             paymentAmount = paymentAmount + ((getIngredientsAmounts().get(ingredientID))*(amount_gr));
-        }while(auxExit != "Y");
+        }while(!Objects.equals(auxExit, "Y"));
         //Update the money account
         account.Withdrawal(paymentAmount);
     }

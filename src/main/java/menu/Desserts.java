@@ -1,5 +1,6 @@
 package menu;
 
+import data.ExcelFileNumericalReader;
 import data.ExcelFileReader;
 
 import java.util.HashMap;
@@ -7,28 +8,35 @@ import java.util.Map;
 
 public class Desserts extends Dish {
 
-    private int calories=0;
+    private int recipeID;
     private Map<Integer,Integer> ingredientsCalories = new HashMap<>();
-    private boolean hot = false;
 
-    public Desserts(int receiptID){
-        super(receiptID);
+
+    public Desserts(int recipeID){
+        super(recipeID);
+        this.recipeID = recipeID;
 
     }
 
     @Override
     public int getProductionCost() {
-        if (hot){productionCostPercentage = 20;
-        }else {productionCostPercentage = 12;}
-        productionCost = getIngredientsTotalPrice() * productionCostPercentage / 100;
+
+        switch (recipeID){
+            case 8,9,10:
+                productionCost = (int) (getIngredientsTotalPrice()*0.12);
+                break;
+            default:
+                System.out.println("Dessert not founded");
+        }
         return productionCost;
     }
 
     public int getCalories(){
-        ExcelFileReader reader = new ExcelFileReader(ingredientsCalories, "Calories");
+        ExcelFileReader reader = new ExcelFileNumericalReader(ingredientsCalories, "Calories");
         setIngredientID();
+        int calories=0;
         for (int i=0;i<getNumberOfIngredients();i++){
-            calories = calories + reader.getNumericalValue(ingredientID.get(i)+1,1);
+            calories = calories + reader.getNumericalValue(ingredientsID.get(i)+1,1);
         }
         return calories;
     }

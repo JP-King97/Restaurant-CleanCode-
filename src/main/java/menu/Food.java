@@ -1,22 +1,27 @@
 package menu;
 
 public class Food extends Dish {
-    private boolean vegan = false;
-    private boolean hot = false;
-    //Constructor
-    public Food(int receiptID, boolean vegan, boolean hot){
-        super(receiptID);
-        this.vegan = vegan;
-        this.hot = hot;
+    private int recipeID;
+    public Food(int recipeID){
+        super(recipeID);
+        this.recipeID = recipeID;
     }
 
     @Override
     public int getProductionCost() {
-        productionCost = (int) (getIngredientsTotalPrice()*0.1);
-        if (vegan){
-            productionCost = 400;
-        } else if (hot) {
-            productionCost = (int) (getIngredientsTotalPrice()*0.2);
+
+        switch (recipeID){
+            case 0:
+                productionCost = 400;
+                break;
+            case 1:
+                productionCost = (int) (getIngredientsTotalPrice()*0.1);
+                break;
+            case 2:
+                productionCost = (int) (getIngredientsTotalPrice()*0.2);
+                break;
+            default:
+                System.out.println("Food dish not founded");
         }
         return productionCost;
     }
