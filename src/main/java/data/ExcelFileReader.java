@@ -34,7 +34,7 @@ public class ExcelFileReader {
      * @return the sheet selected in the Excel File
      */
     public XSSFSheet readSheet(){
-        String filePath = "C:\\Users\\User\\IdeaProjects\\FamilyRestaurant\\Inventory.xlsx";
+        String filePath = "C:\\Users\\User\\IdeaProjects\\FamilyRestaurant\\Restaurant-CleanCode-\\Inventory.xlsx";
         FileInputStream fileInputStream = null;
         XSSFWorkbook xssfWorkbook = null;
         try {  // Review the concept "Fail fast"
