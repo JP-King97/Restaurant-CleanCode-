@@ -28,11 +28,6 @@ public class ExcelFileReader {
         this.sheetName = sheetName;
     }
 
-  //  public ExcelFileReader(Map<Integer, String> StringReader,String sheetName){
-  //      this.StringReader = StringReader;
-  //      this.sheetName = sheetName;
-  //  }
-
     public XSSFSheet readSheet(){
         String filePath = "C:\\Users\\User\\IdeaProjects\\FamilyRestaurant\\Inventory.xlsx";
         FileInputStream fileInputStream = null;
@@ -41,8 +36,7 @@ public class ExcelFileReader {
             fileInputStream = new FileInputStream(filePath);
             xssfWorkbook = new XSSFWorkbook(fileInputStream);
         } catch (IOException e) {throw new RuntimeException(e);}
-        XSSFSheet inventorySheet = xssfWorkbook.getSheet(sheetName);
-        return inventorySheet;
+        return xssfWorkbook.getSheet(sheetName);
     }
     public XSSFCell getCellValue(int rowNumber, int columNumber){
         XSSFRow row =readSheet().getRow(rowNumber);// rN+1 due to the location of the data on file

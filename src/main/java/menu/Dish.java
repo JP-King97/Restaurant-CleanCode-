@@ -4,13 +4,17 @@ import java.util.Map;
 
 public abstract class Dish extends Recipe {
 
-    protected int productionCostPercentage;
+    int recipeID;
     protected int productionCost;
     protected int sellingPrice;
     private int ingredientTotalPrice;
     public Dish(int recipeID) {
         super(recipeID);
+        this.recipeID = recipeID;
+
     }
+
+    public abstract int getProductionCost();
 
     public int getIngredientsTotalPrice(){
         Map<Integer,Integer> ingredientUnitPrice = getIngredientUnitPrice();
@@ -19,20 +23,10 @@ public abstract class Dish extends Recipe {
         }
         return ingredientTotalPrice;
     }
-     public abstract int getProductionCost();
 
-    public int getSellingPrice(int productionCost){
+    public int getSellingPrice(){
         sellingPrice=productionCost+getIngredientsTotalPrice()+1000;
         return sellingPrice;
     }
-
-
- //  public static void main(String[] args) {
- //      int receiptID = 3;
- //      Dish dish = new Dish(receiptID);
- //      //dish.getIngredientID();
- //      dish.getIngredientsTotalPrice();
-
- //  }
 
 }

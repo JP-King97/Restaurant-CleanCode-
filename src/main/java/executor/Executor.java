@@ -1,4 +1,4 @@
-package main;
+package executor;
 
 import account.MoneyAccount;
 import inventory.Inventory;
@@ -9,19 +9,18 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Main {
+public class Executor {
     public static void main(String[] args) {
         MoneyAccount account = new MoneyAccount();
-        Map<Integer, Integer> ingredientsAmounts=new HashMap<>();
-        Map<Integer, String> ingredientsNames=new HashMap<>();
-        Inventory inventory = new Inventory(ingredientsAmounts,ingredientsNames);
-        inventory.setInitialAmounts();
+        Map<Integer, Integer> ingredientsAmounts = new HashMap<>();
+        Map<Integer, String> ingredientsNames = new HashMap<>();
+        //would be good add the Map of the ingredientsIDs
+        Inventory inventory = new Inventory(ingredientsAmounts, ingredientsNames);
         Scanner scanner = new Scanner(System.in);
         Print printer = new Print();
         Order order = new Order();
+        inventory.setInitialAmounts();
         int recipeID;
-
-
 
          int optionSelected;
          do{
@@ -53,7 +52,7 @@ public class Main {
                      //6.Sell a dish.
                      System.out.println("Please introduce the recipe ID:");
                      recipeID = scanner.nextInt();
-                     account.Deposit(order.sellADish(recipeID,inventory));
+                     account.Deposit(order.sellADish(recipeID));
                      break;
                  case 7:
                      //7.EXIT.

@@ -101,7 +101,6 @@ public class Recipe {
         ExcelFileReader reader = new ExcelFileReader(recipeAmounts, recipeIngredients, sheetName);
         for (int i = 0; i < getNumberOfIngredients(); i++){
             recipeIngredients.put(i, reader.getStringValue(firstCell[0] + 4 + i, firstCell[1] - 1));
-            //System.out.println("id: "+i+" -- Ingredient: "+(reader.getStringValue(firstCell[0] + 4 + i, firstCell[1] - 1)));
         }
         return recipeIngredients;
     }
@@ -110,8 +109,6 @@ public class Recipe {
         ExcelFileReader reader = new ExcelFileReader(recipeAmounts, recipeIngredients, sheetName);
         for (int i = 0; i < getNumberOfIngredients(); i++) {
             recipeAmounts.put(i, reader.getNumericalValue(firstCell[0] + 4 + i, firstCell[1]));
-         //   System.out.println("id: "+i+
-         //           " -- Amount: "+(reader.getNumericalValue(firstCell[0] + 4 + i, firstCell[1])));
         }
         return recipeAmounts;
     }
@@ -121,9 +118,7 @@ public class Recipe {
         setIngredientID();
         for(int i = 0; i< getNumberOfIngredients(); i++){
                 ingredientUnitPrice.put(i,reader.getNumericalValue((ingredientsID.get(i))+1,1) );
-      //       System.out.println("Ingredient: " + getReceiptsIngredients().get(i) +
-      //                " -- Unit Price: " + reader.getNumericalValue(ingredientID.get(i)+1,1));
-        }
+      }
         return ingredientUnitPrice;
     }
 
@@ -131,15 +126,12 @@ public class Recipe {
         ExcelFileReader reader = new ExcelFileNumericalReader(ingredientsID,sheetName);
         for( int i=0;i<getNumberOfIngredients();i++){
             ingredientsID.put(i,reader.getNumericalValue(firstCell[0]+4+i,firstCell[1]+1));
-       //         System.out.println("Ingredient: " + getReceiptsIngredients().get(i) +
-       //                 " -- ID: " + reader.getNumericalValue(firstCell[0]+4+i,firstCell[1]+1));
-        }
+       }
     }
 
     public Map<Integer, Integer> getIngredientsID() {
         return ingredientsID;
     }
-
 
      public Map<Integer, String> getAvailableReceipts(){
          ExcelFileReader reader = new ExcelFileStringReader(recipesList,sheetName);
@@ -149,13 +141,6 @@ public class Recipe {
          return recipesList;
      }
 
-   public static void main(String[] args) {
-        Recipe recipe = new Recipe(4);
-   //    System.out.println(receipt.getReceiptsIngredients());
-     //  receipt.getReceiptsAmounts();
-   //     receipt.setIngredientID();
-       // receipt.getIngredientUnitPrice();
-         System.out.println(recipe.getNumberOfRecipes());
-    }
+
 
 }

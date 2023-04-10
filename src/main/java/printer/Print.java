@@ -3,19 +3,10 @@ package printer;
 import account.MoneyAccount;
 import inventory.Inventory;
 import menu.Recipe;
-
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Print {
-    private Map<Integer, Integer> numericalMap = new HashMap<>();
-    private Map<Integer, String> stringMap = new HashMap<>();
-
-    public Print(Map<Integer, Integer> numericalMap, Map<Integer, String> stringMap) {
-        this.numericalMap = numericalMap;
-        this.stringMap = stringMap;
-    }
 
     public Print(){
     }
@@ -39,36 +30,21 @@ public class Print {
         System.out.println("Current money account: $"+account.getCurrentBalance());
     }
 
-    public void currentIngredientInventory(Map<Integer, Integer> numericalMap, Map<Integer, String> stringMap){
-        Inventory inventory = new Inventory(numericalMap,stringMap);
+    public void currentIngredientInventory(Map<Integer, Integer> ingredientsAmounts, Map<Integer, String> ingredientsNames){
+        Inventory inventory = new Inventory(ingredientsAmounts,ingredientsNames);
         System.out.printf("%15s||%15s%n","INGREDIENTS","QUANTITIES");
-        for (int i=0;i<numericalMap.size();i++){
+        for (int i=0;i<ingredientsAmounts.size();i++){
             System.out.printf("%15s%15s%n",inventory.getIngredientsNames().get(i),inventory.getIngredientsAmounts().get(i));
         }
     }
 
     public void currentRecipeList(){
         Recipe recipe = new Recipe();
+        int numberOfRecipes = recipe.getNumberOfRecipes();
+        Map<Integer,String> availableReceipts = recipe.getAvailableReceipts();
         System.out.printf("%10s||%20s%n","ID","RECEIPT");
-        for (int i = 0; i< recipe.getNumberOfRecipes(); i++){
-            System.out.printf("%10s||%20s%n",i, recipe.getAvailableReceipts().get(i));;
+        for (int i = 0; i< numberOfRecipes; i++){
+            System.out.printf("%10s||%20s%n",i, availableReceipts.get(i));
         }
-
     }
-    public void switchBetweenOptions(){
-
-
-    }
-
-      public static void main(String[] args) {
-           Inventory inventory = new Inventory();
-           inventory.setInitialAmounts();
-           Print printer = new Print();
-           Scanner scanner = new Scanner(System.in);
-           int optionSelected = printer.mainMenu(scanner);
-           printer.currentRecipeList();
-//
-      }
-
-
 }
