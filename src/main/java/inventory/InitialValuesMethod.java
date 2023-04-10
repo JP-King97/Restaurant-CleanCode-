@@ -1,7 +1,6 @@
 package inventory;
 
 import data.ExcelFileReader;
-import data.ExcelFileStringReader;
 
 
 import java.util.Map;
@@ -20,8 +19,10 @@ public class InitialValuesMethod {
         this.ingredientsNames = ingredientsNames;
     }
 
-
-    public void getExcelFileValues() {
+    /**
+     * set the initial values from an Excel File
+     */
+    public void setValuesFromExcel() {
         ExcelFileReader reader = new ExcelFileReader(ingredientsAmounts, ingredientsNames,sheetName);
         for (int i = 0; i < 36; i++) {
             reader.setStringValue(i, reader.getStringValue(i+1,0));
@@ -30,7 +31,10 @@ public class InitialValuesMethod {
         }
     }
 
-    public void getRandomValues() {
+    /**
+     * Set initial random values
+     */
+    public void setRandomValues() {
         Random random = new Random();
         ExcelFileReader reader = new ExcelFileReader(ingredientsAmounts, ingredientsNames,sheetName);
         for (int i = 0; i < 36; i++) {
@@ -41,6 +45,9 @@ public class InitialValuesMethod {
         }
     }
 
+    /**
+     * Set initial values manually
+     */
     public void enterValuesManually() {
         Scanner scanner = new Scanner(System.in);
         ExcelFileReader reader = new ExcelFileReader(ingredientsAmounts, ingredientsNames,sheetName);

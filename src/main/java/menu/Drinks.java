@@ -8,6 +8,11 @@ public class Drinks extends Dish {
         this.recipeID = recipeID;
     }
 
+    /**
+     * Calculate the production cost for a drink
+     *
+     * @return the production cost
+     */
     @Override
     public int getProductionCost() {
 

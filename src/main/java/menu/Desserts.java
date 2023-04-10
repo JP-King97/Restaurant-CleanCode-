@@ -18,6 +18,11 @@ public class Desserts extends Dish {
 
     }
 
+    /**
+     * Calculate the production cost for a dessert
+     *
+     * @return the production cost
+     */
     @Override
     public int getProductionCost() {
 
@@ -40,11 +45,4 @@ public class Desserts extends Dish {
         }
         return calories;
     }
-
-    public static void main(String[] args) {
-        Desserts dessert = new Desserts(9);
-        dessert.getIngredientsTotalPrice();
-    }
-
-
 }

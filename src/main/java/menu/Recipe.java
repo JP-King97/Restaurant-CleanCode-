@@ -105,7 +105,12 @@ public class Recipe {
         return recipeIngredients;
     }
 
-    public Map<Integer, Integer> getRecipesAmounts() {
+    /**
+     * get the ingredients' amounts for the recipe
+     *
+     * @return ingredients' amounts for the recipe
+     */
+    public Map<Integer, Integer> getRecipeAmounts() {
         ExcelFileReader reader = new ExcelFileReader(recipeAmounts, recipeIngredients, sheetName);
         for (int i = 0; i < getNumberOfIngredients(); i++) {
             recipeAmounts.put(i, reader.getNumericalValue(firstCell[0] + 4 + i, firstCell[1]));
@@ -113,6 +118,11 @@ public class Recipe {
         return recipeAmounts;
     }
 
+    /**
+     * get the ingredients' unit price
+     *
+     * @return the ingredients' unit price
+     */
     public Map<Integer, Integer> getIngredientUnitPrice(){
         ExcelFileReader reader = new ExcelFileNumericalReader(ingredientUnitPrice,"Prices");
         setIngredientID();
@@ -122,6 +132,10 @@ public class Recipe {
         return ingredientUnitPrice;
     }
 
+    /**
+     * Set the ingredients IDs got from the Excel File
+     *
+     */
     public void setIngredientID(){
         ExcelFileReader reader = new ExcelFileNumericalReader(ingredientsID,sheetName);
         for( int i=0;i<getNumberOfIngredients();i++){
@@ -133,7 +147,12 @@ public class Recipe {
         return ingredientsID;
     }
 
-     public Map<Integer, String> getAvailableReceipts(){
+    /**
+     * set the listed recipes in the Excel File
+     *
+     * @return the list of recipes
+     */
+     public Map<Integer, String> getAvailableRecipes(){
          ExcelFileReader reader = new ExcelFileStringReader(recipesList,sheetName);
          for (int i = 0; i< getNumberOfRecipes(); i++){
              recipesList.put(i,reader.getStringValue(45+i,3));

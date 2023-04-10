@@ -28,6 +28,11 @@ public class ExcelFileReader {
         this.sheetName = sheetName;
     }
 
+    /**
+     * Find the sheet provided in the String "sheetName".
+     *
+     * @return the sheet selected in the Excel File
+     */
     public XSSFSheet readSheet(){
         String filePath = "C:\\Users\\User\\IdeaProjects\\FamilyRestaurant\\Inventory.xlsx";
         FileInputStream fileInputStream = null;
@@ -38,13 +43,27 @@ public class ExcelFileReader {
         } catch (IOException e) {throw new RuntimeException(e);}
         return xssfWorkbook.getSheet(sheetName);
     }
-    public XSSFCell getCellValue(int rowNumber, int columNumber){
+
+    /**
+     * Find the cell located in the row and column provided
+     *
+     * @param rowNumber
+     * @param columnNumber
+     * @return the cell selected in the selected sheet in the Excel File
+     */
+    public XSSFCell getCellValue(int rowNumber, int columnNumber){
         XSSFRow row =readSheet().getRow(rowNumber);// rN+1 due to the location of the data on file
-        return  row.getCell(columNumber);//0 = #column
+        return  row.getCell(columnNumber);//0 = #column
     }
 
 
-
+    /**
+     *  Find the numerical value in the cell located in the row and column provided
+     *
+     * @param rowNumber
+     * @param columNumber
+     * @return the Integer value located in the row and column provided
+     */
     public Integer getNumericalValue(int rowNumber, int columNumber){
         return Integer.valueOf(getCellValue(rowNumber,columNumber).getRawValue());
     }
@@ -52,6 +71,13 @@ public class ExcelFileReader {
         numericalReader.put(ID,amount);
     }
 
+    /**
+     * Find the String value in the cell located in the row and column provided
+     *
+     * @param rowNumber
+     * @param columNumber
+     * @return the String value located in the row and column provided
+     */
     public String getStringValue(int rowNumber, int columNumber){
         return getCellValue(rowNumber,columNumber).getStringCellValue();
     }

@@ -14,16 +14,31 @@ public abstract class Dish extends Recipe {
 
     }
 
+    /**
+     * Abstract method that should return the production cost which in
+     *  every child class will be defined with a different formula
+     * @return production cost
+     */
     public abstract int getProductionCost();
 
+    /**
+     * Calculate the selected ingredients total price
+     *
+     * @return the selected ingredients total priced
+     */
     public int getIngredientsTotalPrice(){
         Map<Integer,Integer> ingredientUnitPrice = getIngredientUnitPrice();
         for ( int i=0; i<getNumberOfIngredients();i++){
-            ingredientTotalPrice = ingredientTotalPrice + ingredientUnitPrice.get(i)* getRecipesAmounts().get(i);
+            ingredientTotalPrice = ingredientTotalPrice + ingredientUnitPrice.get(i)* getRecipeAmounts().get(i);
         }
         return ingredientTotalPrice;
     }
 
+    /**
+     * Calculated the selling price of the selected dish
+     *
+     * @return Selling price of the selected dish
+     */
     public int getSellingPrice(){
         sellingPrice=productionCost+getIngredientsTotalPrice()+1000;
         return sellingPrice;

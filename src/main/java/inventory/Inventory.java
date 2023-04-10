@@ -2,7 +2,6 @@ package inventory;
 
 import account.MoneyAccount;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -37,19 +36,36 @@ public class Inventory {
         this.ingredientsNames = ingredientsNames;
     }
 
+    /**
+     * Set the initial amount with the selected method
+     */
     public void setInitialAmounts(){
         InitialValuesMethod method = new InitialValuesMethod(ingredientsAmounts,ingredientsNames);
-        method.getExcelFileValues();
+        method.setValuesFromExcel();
     }
 
+    /**
+     * reduce the money in the account by taking out the payment amount for the purchased ingredients
+     *
+     * @param scanner
+     * @param account
+     */
     public void buyIngredients(Scanner scanner, MoneyAccount account){
         //request the ingredient and the amount
         int paymentAmount = 0;
-        paymentAmount = addPurchaseAmount(scanner,"Y",paymentAmount);
+        paymentAmount = addPurchaseAmount(scanner, paymentAmount);
         account.Withdrawal(paymentAmount);
     }
 
-    private int addPurchaseAmount(Scanner scanner,String auxExit,int paymentAmount){
+    /**
+     * Calculate the total payment amount of the purchased ingredients
+     *
+     * @param scanner
+     * @param paymentAmount related to the purchased ingredients
+     * @return total payment amount
+     */
+    private int addPurchaseAmount(Scanner scanner, int paymentAmount){
+        String auxExit = "Y";
         do{
             System.out.println("Please introduce the ingredient ID and the amount in gr: ");
             System.out.print("ingredient ID:");
@@ -66,6 +82,11 @@ public class Inventory {
         return paymentAmount;
     }
 
+    /**
+     * Set new ingredients' amounts related to the ingredients' IDs
+     * @param ingredientID
+     * @param newAmount
+     */
     public void updatedAmounts(int ingredientID,int newAmount){
         ingredientsAmounts.put(ingredientID,newAmount);
     }
