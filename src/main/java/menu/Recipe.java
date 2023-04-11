@@ -9,18 +9,16 @@ import java.util.Map;
 
 public class Recipe {
 
-    private int receiptID;
     // private int numberOfIngredients;
-    private int[] firstCell = new int[2]; //firstCell[0]= row; firstCell[1]= column ,
-    private Map<Integer, String> recipeIngredients = new HashMap<>();
+    private final int[] firstCell = new int[2]; //firstCell[0]= row; firstCell[1]= column ,
+    private final Map<Integer, String> recipeIngredients = new HashMap<>();
     protected Map<Integer, Integer> recipeAmounts = new HashMap<>();
     protected Map<Integer, Integer> ingredientUnitPrice = new HashMap<>();
     protected Map<Integer, Integer> ingredientsID = new HashMap<>();
     protected Map<Integer, String> recipesList = new HashMap<>();
-    private String sheetName = "Receipts";
+    private final String sheetName = "Receipts";
 
     public Recipe(int receiptID) {
-        this.receiptID = receiptID;
         selectRecipe(receiptID);
     }
 
@@ -28,61 +26,51 @@ public class Recipe {
 
     public void selectRecipe(int recipeID) {
         switch (recipeID) {
-            case 0: {
+            case 0 -> {
                 firstCell[0] = 1;
                 firstCell[1] = 3;
-                break;
             }
-            case 1: {
+            case 1 -> {
                 firstCell[0] = 1;
                 firstCell[1] = 8;
-                break;
             }
-            case 2: {
+            case 2 -> {
                 firstCell[0] = 1;
                 firstCell[1] = 13;
-                break;
             }
-            case 3: {
+            case 3 -> {
                 firstCell[0] = 20;
                 firstCell[1] = 3;
-                break;
             }
-            case 4: {
+            case 4 -> {
                 firstCell[0] = 20;
                 firstCell[1] = 8;
-                break;
             }
-            case 5: {
+            case 5 -> {
                 firstCell[0] = 20;
                 firstCell[1] = 13;
-                break;
             }
-            case 6: {
+            case 6 -> {
                 firstCell[0] = 20;
                 firstCell[1] = 18;
-                break;
             }
-            case 7: {
+            case 7 -> {
                 firstCell[0] = 20;
                 firstCell[1] = 23;
-                break;
             }
-            case 8: {
+            case 8 -> {
                 firstCell[0] = 32;
                 firstCell[1] = 3;
-                break;
             }
-            case 9: {
+            case 9 -> {
                 firstCell[0] = 32;
                 firstCell[1] = 8;
-                break;
             }
-            case 10: {
+            case 10 -> {
                 firstCell[0] = 32;
                 firstCell[1] = 13;
-                break;
             }
+            default -> System.out.println("Recipe not founded");
         }
     }
 
@@ -150,7 +138,7 @@ public class Recipe {
     /**
      * set the listed recipes in the Excel File
      *
-     * @return the list of recipes
+     * @return the Map of recipes
      */
      public Map<Integer, String> getAvailableRecipes(){
          ExcelFileReader reader = new ExcelFileStringReader(recipesList,sheetName);

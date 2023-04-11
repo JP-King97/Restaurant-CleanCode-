@@ -9,9 +9,9 @@ import java.util.Scanner;
 
 public class InitialValuesMethod {
 
-    private Map<Integer, Integer> ingredientsAmounts;
-    private Map<Integer, String> ingredientsNames;
-    private String sheetName = "WarehouseQuantities";
+    private final Map<Integer, Integer> ingredientsAmounts;
+    private final Map<Integer, String> ingredientsNames;
+    private final String sheetName = "WarehouseQuantities";
 
     public InitialValuesMethod(Map<Integer, Integer> ingredientsAmounts,
                                Map<Integer, String> ingredientsNames) {
@@ -27,8 +27,7 @@ public class InitialValuesMethod {
         for (int i = 0; i < 36; i++) {
             reader.setStringValue(i, reader.getStringValue(i+1,0));
             reader.setNumericalValue(i, reader.getNumericalValue(i+1,1));
-            //System.out.println("Ingredient: " + reader.getStringValue(i+1,0) + " -- Quantity: " + reader.getNumericalValue(i+1,1));
-        }
+            }
     }
 
     /**
@@ -40,8 +39,8 @@ public class InitialValuesMethod {
         for (int i = 0; i < 36; i++) {
             reader.setStringValue(i, reader.getStringValue(i+1,0));
             Integer randomNumber = random.nextInt(5000);
-            reader.setNumericalValue(i, reader.getNumericalValue(i+1,1));
-            //System.out.println("Ingredient: " + reader.getStringValue(i+1,0) + " -- Quantity: " + randomNumber);
+            reader.setNumericalValue(i, randomNumber);
+
         }
     }
 

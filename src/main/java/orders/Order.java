@@ -65,7 +65,7 @@ public class Order {
             }
             default -> {
                 System.out.println("Recipe not found");
-                return dish = null;
+                return null;
             }
         }
     }

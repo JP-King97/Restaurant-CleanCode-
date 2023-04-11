@@ -8,8 +8,8 @@ import java.util.Map;
 
 public class Desserts extends Dish {
 
-    private int recipeID;
-    private Map<Integer,Integer> ingredientsCalories = new HashMap<>();
+    private final int recipeID;
+    private final Map<Integer,Integer> ingredientsCalories = new HashMap<>();
 
 
     public Desserts(int recipeID){
@@ -19,19 +19,16 @@ public class Desserts extends Dish {
     }
 
     /**
-     * Calculate the production cost for a dessert
+     * Calculate the production cost for a dessert depending on if is a cold or hot
      *
      * @return the production cost
      */
     @Override
     public int getProductionCost() {
 
-        switch (recipeID){
-            case 8,9,10:
-                productionCost = (int) (getIngredientsTotalPrice()*0.12);
-                break;
-            default:
-                System.out.println("Dessert not founded");
+        switch (recipeID) {
+            case 8, 9, 10 -> productionCost = (int) (getIngredientsTotalPrice() * 0.12);
+            default -> System.out.println("Dessert not founded");
         }
         return productionCost;
     }

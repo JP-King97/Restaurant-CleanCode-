@@ -10,9 +10,9 @@ import java.io.IOException;
 import java.util.Map;
 
 public class ExcelFileReader {
-    private String sheetName;
-    private Map<Integer, Integer> numericalReader; //numerical reader
-    private Map<Integer, String> StringReader; //String reader
+    private final String sheetName;
+    private Map<Integer, Integer> numericalReader;
+    private Map<Integer, String> StringReader;
 
 
 
@@ -34,8 +34,8 @@ public class ExcelFileReader {
      */
     public XSSFSheet readSheet(){
         String filePath = "C:\\Users\\User\\IdeaProjects\\FamilyRestaurant\\Restaurant-CleanCode-\\Inventory.xlsx";
-        FileInputStream fileInputStream = null;
-        XSSFWorkbook xssfWorkbook = null;
+        FileInputStream fileInputStream;
+        XSSFWorkbook xssfWorkbook;
         try {  // Review the concept "Fail fast"
             fileInputStream = new FileInputStream(filePath);
             xssfWorkbook = new XSSFWorkbook(fileInputStream);
@@ -51,8 +51,8 @@ public class ExcelFileReader {
      * @return the cell selected in the selected sheet in the Excel File
      */
     public XSSFCell getCellValue(int rowNumber, int columnNumber){
-        XSSFRow row =readSheet().getRow(rowNumber);// rN+1 due to the location of the data on file
-        return  row.getCell(columnNumber);//0 = #column
+        XSSFRow row =readSheet().getRow(rowNumber);
+        return  row.getCell(columnNumber);
     }
 
 

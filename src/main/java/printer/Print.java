@@ -27,8 +27,7 @@ public class Print {
                            "6.Sell a dish.\n" +
                            "7.EXIT.\n" +
                            "/////////////////////////////////////////////////");
-        int option = scanner.nextInt();
-        return option;
+        return scanner.nextInt();
     }
 
     /**

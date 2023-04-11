@@ -9,9 +9,9 @@ import java.util.Scanner;
 
 public class Inventory {
 
-    private Map<Integer, Integer> ingredientsAmounts = new HashMap<>();
-    private Map<Integer, String> ingredientsNames = new HashMap<>();
-    private Map<Integer, String> ingredientIDs = new HashMap<>();
+    private Map<Integer, Integer> ingredientsAmounts;
+    private Map<Integer, String> ingredientsNames;
+    private final Map<Integer, String> ingredientIDs = new HashMap<>();
     int ingredientID;
     //
     public Inventory(Map<Integer, Integer> ingredientsAmounts,
