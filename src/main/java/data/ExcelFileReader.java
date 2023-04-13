@@ -33,11 +33,10 @@ public class ExcelFileReader {
      * @return the sheet selected in the Excel File
      */
     public XSSFSheet readSheet(){
-        String filePath = "C:\\Users\\User\\IdeaProjects\\FamilyRestaurant\\Restaurant-CleanCode-\\Inventory.xlsx";
         FileInputStream fileInputStream;
         XSSFWorkbook xssfWorkbook;
         try {  // Review the concept "Fail fast"
-            fileInputStream = new FileInputStream(filePath);
+            fileInputStream = new FileInputStream("Inventory.xlsx");
             xssfWorkbook = new XSSFWorkbook(fileInputStream);
         } catch (IOException e) {throw new RuntimeException(e);}
         return xssfWorkbook.getSheet(sheetName);
