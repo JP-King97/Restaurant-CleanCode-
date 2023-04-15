@@ -4,7 +4,7 @@ import java.util.Map;
 
 public abstract class Dish extends Recipe {
 
-    int recipeID;
+    protected int recipeID;
     protected int productionCost;
     protected int sellingPrice;
     private int ingredientTotalPrice;

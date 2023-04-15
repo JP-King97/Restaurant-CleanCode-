@@ -2,7 +2,7 @@ package account;
 
 public class MoneyAccount {
 
-    int currentBalance = 100000;
+    private int currentBalance = 100000;
 
     public MoneyAccount (){}
 

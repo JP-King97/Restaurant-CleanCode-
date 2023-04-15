@@ -9,7 +9,6 @@ import java.util.Map;
 
 public class Recipe {
 
-    // private int numberOfIngredients;
     private final int[] firstCell = new int[2]; //firstCell[0]= row; firstCell[1]= column ,
     private final Map<Integer, String> recipeIngredients = new HashMap<>();
     protected Map<Integer, Integer> recipeAmounts = new HashMap<>();

@@ -40,7 +40,11 @@ public class menuStarter {
                      printer.currentIngredientInventory(ingredientsAmounts,ingredientsNames);
                      break;
                  case 3:
-                     inventory.buyIngredients(scanner,account);
+                     try{
+                         inventory.buyIngredients(scanner,account);
+                     }catch (Exception e){
+                         System.out.println("Ingredient no founded");
+                     }
                      break;
                  case 4:
                      printer.currentRecipeList();

@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 public class InitialValuesMethod {
 
+
+
     private final Map<Integer, Integer> ingredientsAmounts;
     private final Map<Integer, String> ingredientsNames;
     private final String sheetName = "WarehouseQuantities";
