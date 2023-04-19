@@ -13,6 +13,7 @@ public abstract class Dish extends Recipe {
         this.recipeID = recipeID;
 
     }
+    public Dish(){}
 
     /**
      * Abstract method that should return the production cost which in
@@ -27,7 +28,7 @@ public abstract class Dish extends Recipe {
      * @return the selected ingredients total priced
      */
     public int getIngredientsTotalPrice(){
-        Map<Integer,Integer> ingredientUnitPrice = getIngredientUnitPrice();
+        Map<Integer,Integer> ingredientUnitPrice = getIngredientsUnitPrices();
         for ( int i=0; i<getNumberOfIngredients();i++){
             ingredientTotalPrice = ingredientTotalPrice + ingredientUnitPrice.get(i)* getRecipeAmounts().get(i);
         }

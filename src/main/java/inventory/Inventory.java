@@ -1,47 +1,54 @@
 package inventory;
 
 import account.MoneyAccount;
+import data.ExcelFileNumericalReader;
+import data.ExcelFileReader;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Inventory {
 
-    private Map<Integer, Integer> ingredientsAmounts;
-    private Map<Integer, String> ingredientsNames;
-    private final Map<Integer, String> ingredientIDs = new HashMap<>();
-    int ingredientID;
-    //
-    public Inventory(Map<Integer, Integer> ingredientsAmounts,
-                     Map<Integer, String> ingredientsNames){
-    this.ingredientsAmounts = ingredientsAmounts;
-    this.ingredientsNames = ingredientsNames;
+    private final Map<Integer, Integer> INGREDIENTS_AMOUNTS;
+    private final Map<Integer, String> INGREDIENTS_NAMES;
+    private final Map<Integer, Integer> INGREDIENTS_UNIT_PRICES;
+    private Map<Integer,Integer> ingredientsUnitPrices;
+
+    public Inventory(Map<Integer, Integer> INGREDIENTS_AMOUNTS,
+                     Map<Integer, String> INGREDIENTS_NAMES, Map<Integer, Integer> INGREDIENTS_UNIT_PRICES){
+    this.INGREDIENTS_AMOUNTS = INGREDIENTS_AMOUNTS;
+    this.INGREDIENTS_NAMES = INGREDIENTS_NAMES;
+    this.INGREDIENTS_UNIT_PRICES = INGREDIENTS_UNIT_PRICES;
     }
 
-    public Map<Integer, Integer> getIngredientsAmounts() {
-        return ingredientsAmounts;
+    public Map<Integer, Integer> getINGREDIENTS_AMOUNTS() {
+        return INGREDIENTS_AMOUNTS;
     }
 
-    public void setIngredientsAmounts(Map<Integer, Integer> ingredientsAmounts) {
-        this.ingredientsAmounts = ingredientsAmounts;
+    public Map<Integer, String> getINGREDIENTS_NAMES() {
+        return INGREDIENTS_NAMES;
     }
 
-    public Map<Integer, String> getIngredientsNames() {
-        return ingredientsNames;
-    }
-
-    public void setIngredientsNames(Map<Integer, String> ingredientsNames) {
-        this.ingredientsNames = ingredientsNames;
+    public Map<Integer, Integer> getINGREDIENTS_UNIT_PRICES() {
+        return INGREDIENTS_UNIT_PRICES;
     }
 
     /**
      * Set the initial amount with the selected method
      */
     public void setInitialAmounts(){
-        InitialValuesMethod method = new InitialValuesMethod(ingredientsAmounts,ingredientsNames);
+        InitialValuesMethod method = new InitialValuesMethod(INGREDIENTS_AMOUNTS, INGREDIENTS_NAMES);
         method.setValuesFromExcel();
+    }
+
+    public Map<Integer,Integer> setIngredientsUnitPrices(){
+        ExcelFileReader reader = new ExcelFileNumericalReader("Prices");
+        int numberOfIngredients = 36;
+        for(int i = 0; i< numberOfIngredients; i++){
+            INGREDIENTS_UNIT_PRICES.put(i,reader.getNumericalValue(i,1));
+        }
+        return INGREDIENTS_UNIT_PRICES;
     }
 
     /**
@@ -51,7 +58,6 @@ public class Inventory {
      * @param account
      */
     public void buyIngredients(Scanner scanner, MoneyAccount account){
-        //request the ingredient and the amount
         int paymentAmount = 0;
         paymentAmount = addPurchaseAmount(scanner, paymentAmount);
         account.Withdrawal(paymentAmount);
@@ -75,20 +81,20 @@ public class Inventory {
             System.out.print("continue?:Y or N\n");
             auxExit = scanner.next();
             //update the inventory
-            int currentAmount = getIngredientsAmounts().get(ingredientID);
+            int currentAmount = getINGREDIENTS_AMOUNTS().get(ingredientID);
             updatedAmounts(ingredientID,(amount_gr+currentAmount));
-            paymentAmount = paymentAmount + ((getIngredientsAmounts().get(ingredientID))*(amount_gr));
+            paymentAmount = paymentAmount + ((getINGREDIENTS_UNIT_PRICES().get(ingredientID+1))*(amount_gr));
         }while(!Objects.equals(auxExit, "N"));
         return paymentAmount;
     }
-
     /**
+
      * Set new ingredients' amounts related to the ingredients' IDs
      * @param ingredientID
      * @param newAmount
      */
     public void updatedAmounts(int ingredientID,int newAmount){
-        ingredientsAmounts.put(ingredientID,newAmount);
+        INGREDIENTS_AMOUNTS.put(ingredientID,newAmount);
     }
 
 }

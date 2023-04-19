@@ -12,7 +12,6 @@ public class Order {
 
     String typeOfDish;
     public Order(){
-
     }
 
     /**
@@ -80,9 +79,8 @@ public class Order {
         dish.setIngredientID();
         Map<Integer,Integer> ingredientsID = dish.getIngredientsID();
         Map<Integer,Integer> recipeIngredientAmounts = dish.getRecipeAmounts();
-        Map<Integer,Integer> ingredientsAmounts = inventory.getIngredientsAmounts();
-        int numberOfIngredients = dish.getNumberOfIngredients();
-        for(int i = 0; i< numberOfIngredients; i++){
+        Map<Integer,Integer> ingredientsAmounts = inventory.getINGREDIENTS_AMOUNTS();
+        for(int i = 0; i< recipeIngredientAmounts.size(); i++){
             int ingredientAmountRequired = recipeIngredientAmounts.get(i);
             int IDs = ingredientsID.get(i);
             int inventoryIngredientAmount = ingredientsAmounts.get(IDs);

@@ -34,7 +34,7 @@ public class Desserts extends Dish {
     }
 
     public int getCalories(){
-        ExcelFileReader reader = new ExcelFileNumericalReader(ingredientsCalories, "Calories");
+        ExcelFileReader reader = new ExcelFileNumericalReader( "Calories");
         setIngredientID();
         int calories=0;
         for (int i=0;i<getNumberOfIngredients();i++){

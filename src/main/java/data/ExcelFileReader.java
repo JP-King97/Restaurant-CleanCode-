@@ -10,21 +10,21 @@ import java.io.IOException;
 import java.util.Map;
 
 public class ExcelFileReader {
-    private final String sheetName;
+    private final String SHEET_NAME;
     private Map<Integer, Integer> numericalReader;
     private Map<Integer, String> StringReader;
 
 
 
     public ExcelFileReader(Map<Integer, Integer> numericalReader,
-                           Map<Integer, String> StringReader, String sheetName){
+                           Map<Integer, String> StringReader, String SHEET_NAME){
         this.numericalReader = numericalReader;
         this.StringReader = StringReader;
-        this.sheetName = sheetName;
+        this.SHEET_NAME = SHEET_NAME;
     }
 
-    public ExcelFileReader(String sheetName){
-        this.sheetName = sheetName;
+    public ExcelFileReader(String SHEET_NAME){
+        this.SHEET_NAME = SHEET_NAME;
     }
 
     /**
@@ -39,7 +39,7 @@ public class ExcelFileReader {
             fileInputStream = new FileInputStream("Inventory.xlsx");
             xssfWorkbook = new XSSFWorkbook(fileInputStream);
         } catch (IOException e) {throw new RuntimeException(e);}
-        return xssfWorkbook.getSheet(sheetName);
+        return xssfWorkbook.getSheet(SHEET_NAME);
     }
 
     /**

@@ -11,22 +11,23 @@ public class InitialValuesMethod {
 
 
 
-    private final Map<Integer, Integer> ingredientsAmounts;
-    private final Map<Integer, String> ingredientsNames;
-    private final String sheetName = "WarehouseQuantities";
+    private final Map<Integer, Integer> INGREDIENTS_AMOUNTS;
+    private final Map<Integer, String> INGREDIENTS_NAMES;
+    private final String SHEET_NAME = "WarehouseQuantities";
+    private final Integer NUMBER_OF_INGREDIENTS = 36;
 
-    public InitialValuesMethod(Map<Integer, Integer> ingredientsAmounts,
-                               Map<Integer, String> ingredientsNames) {
-        this.ingredientsAmounts = ingredientsAmounts;
-        this.ingredientsNames = ingredientsNames;
+    public InitialValuesMethod(Map<Integer, Integer> INGREDIENTS_AMOUNTS,
+                               Map<Integer, String> INGREDIENTS_NAMES) {
+        this.INGREDIENTS_AMOUNTS = INGREDIENTS_AMOUNTS;
+        this.INGREDIENTS_NAMES = INGREDIENTS_NAMES;
     }
 
     /**
      * set the initial values from an Excel File
      */
     public void setValuesFromExcel() {
-        ExcelFileReader reader = new ExcelFileReader(ingredientsAmounts, ingredientsNames,sheetName);
-        for (int i = 0; i < 36; i++) {
+        ExcelFileReader reader = new ExcelFileReader(INGREDIENTS_AMOUNTS, INGREDIENTS_NAMES, SHEET_NAME);
+        for (int i = 0; i < NUMBER_OF_INGREDIENTS; i++) {
             reader.setStringValue(i, reader.getStringValue(i+1,0));
             reader.setNumericalValue(i, reader.getNumericalValue(i+1,1));
             }
@@ -37,8 +38,8 @@ public class InitialValuesMethod {
      */
     public void setRandomValues() {
         Random random = new Random();
-        ExcelFileReader reader = new ExcelFileReader(ingredientsAmounts, ingredientsNames,sheetName);
-        for (int i = 0; i < 36; i++) {
+        ExcelFileReader reader = new ExcelFileReader(INGREDIENTS_AMOUNTS, INGREDIENTS_NAMES, SHEET_NAME);
+        for (int i = 0; i < NUMBER_OF_INGREDIENTS; i++) {
             reader.setStringValue(i, reader.getStringValue(i+1,0));
             Integer randomNumber = random.nextInt(5000);
             reader.setNumericalValue(i, randomNumber);
@@ -51,8 +52,8 @@ public class InitialValuesMethod {
      */
     public void enterValuesManually() {
         Scanner scanner = new Scanner(System.in);
-        ExcelFileReader reader = new ExcelFileReader(ingredientsAmounts, ingredientsNames,sheetName);
-        for (int i = 0; i < 36; i++) {
+        ExcelFileReader reader = new ExcelFileReader(INGREDIENTS_AMOUNTS, INGREDIENTS_NAMES, SHEET_NAME);
+        for (int i = 0; i < NUMBER_OF_INGREDIENTS; i++) {
             System.out.println("Please introduce the ingredient #" + (i + 1) + ":");
             reader.setStringValue(i, scanner.nextLine());
             System.out.println("Please introduce the amount(gr) #" + (i + 1) + ":");

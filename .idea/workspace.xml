@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="477034c7-5a48-4415-903f-82b883793906" name="Changes" comment="fix(menuStarter): the crash caused by running the code from the terminal and using the &quot;build.gradlew&quot; was solved.&#10;&#10;&#10;the error was thrown automatically due the scanner used in the printer.mainMenu start with a unknown input and fail, causing a crash even before enter any value">
-      <change afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Dish.class.uniqueId5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Drinks.class.uniqueId1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Food.class.uniqueId6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Order.class.uniqueId2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Print.class.uniqueId3" afterDir="false" />
+    <list default="true" id="477034c7-5a48-4415-903f-82b883793906" name="Changes" comment="fix(menuStarter): the option &quot;buy ingredients&quot; was fixed&#10;&#10;&#10;the program was taking the amount as a unit price of the ingredient, and for that reason was calculate a wrong price when the user buys any ingredient">
+      <change afterPath="$PROJECT_DIR$/src/main/java/printer/Printer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1/executionHistory/executionHistory.bin" afterDir="false" />
@@ -20,27 +16,39 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/MenuStarter/menuStarter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/MenuStarter/menuStarter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/account/MoneyAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/account/MoneyAccount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/ExcelFileNumericalReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/data/ExcelFileNumericalReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/ExcelFileReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/data/ExcelFileReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/ExcelFileStringReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/data/ExcelFileStringReader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/inventory/InitialValuesMethod.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/inventory/InitialValuesMethod.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/inventory/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/inventory/Inventory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/menu/Desserts.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/menu/Desserts.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/menu/Dish.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/menu/Dish.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/menu/Recipe.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/menu/Recipe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/orders/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/orders/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/printer/Print.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/printer/Print.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/distributions/FamilyRestaurant-1.0-SNAPSHOT.tar" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/FamilyRestaurant-1.0-SNAPSHOT.tar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/distributions/FamilyRestaurant-1.0-SNAPSHOT.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/FamilyRestaurant-1.0-SNAPSHOT.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/gs-gradle-0.1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/gs-gradle-0.1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Desserts.class.uniqueId5" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Desserts.class.uniqueId4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ExcelFileNumericalReader.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ExcelFileReader.class.uniqueId4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ExcelFileStringReader.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/InitialValuesMethod.class.uniqueId3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Recipe.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Recipe.class.uniqueId0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Desserts.class.uniqueId4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Dish.class.uniqueId5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Drinks.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Food.class.uniqueId6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Order.class.uniqueId2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Print.class.uniqueId3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Recipe.class.uniqueId0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MenuStarter/menuStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MenuStarter/menuStarter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/account/MoneyAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/account/MoneyAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/ExcelFileNumericalReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/ExcelFileNumericalReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/ExcelFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/ExcelFileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/ExcelFileStringReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/ExcelFileStringReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/inventory/InitialValuesMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/InitialValuesMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/menu/Desserts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/Desserts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/menu/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/Dish.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/menu/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/Recipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/orders/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orders/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/printer/Print.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/printer/Print.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +59,14 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -153,26 +169,55 @@
       <option name="project" value="LOCAL" />
       <updated>1681367669361</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix(menuStarter): the crash caused by running the code from the terminal and using the &quot;build.gradlew&quot; was solved.&#10;&#10;&#10;the error was thrown automatically due the scanner used in the printer.mainMenu start with a unknown input and fail, causing a crash even before enter any value">
+      <created>1681587666055</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681587666055</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix(menuStarter): the crash caused by entering special characters instead of integers was fixed and the main class was renamed as &quot;menuStarter&quot;." />
     <MESSAGE value="fix(menuStarter): the crash caused by running the code from the terminal and using the &quot;build.gradlew&quot; was solved.&#10;&#10;&#10;the error was thrown automatically due the scanner used in the printer.mainMenu start with a unknown input and fail, causing a crash even before enter any value" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(menuStarter): the crash caused by running the code from the terminal and using the &quot;build.gradlew&quot; was solved.&#10;&#10;&#10;the error was thrown automatically due the scanner used in the printer.mainMenu start with a unknown input and fail, causing a crash even before enter any value" />
+    <MESSAGE value="fix(menuStarter): the option &quot;buy ingredients&quot; was fixed&#10;&#10;&#10;the program was taking the amount as a unit price of the ingredient, and for that reason was calculate a wrong price when the user buys any ingredient" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(menuStarter): the option &quot;buy ingredients&quot; was fixed&#10;&#10;&#10;the program was taking the amount as a unit price of the ingredient, and for that reason was calculate a wrong price when the user buys any ingredient" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/menu/Dish.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/src/main/java/inventory/Inventory.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MenuStarter/menuStarter.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/src/main/java/inventory/Inventory.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/inventory/Inventory.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/inventory/Inventory.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
