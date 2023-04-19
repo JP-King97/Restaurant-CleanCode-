@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="477034c7-5a48-4415-903f-82b883793906" name="Changes" comment="fix(menuStarter): the option &quot;buy ingredients&quot; was fixed&#10;&#10;&#10;the program was taking the amount as a unit price of the ingredient, and for that reason was calculate a wrong price when the user buys any ingredient">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MenuStarter/menuStarter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/MenuStarter/menuStarter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/inventory/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/inventory/Inventory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/FamilyRestaurant-1.0-SNAPSHOT.tar" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/FamilyRestaurant-1.0-SNAPSHOT.tar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/FamilyRestaurant-1.0-SNAPSHOT.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/FamilyRestaurant-1.0-SNAPSHOT.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/gs-gradle-0.1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/gs-gradle-0.1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MenuStarter/menuStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MenuStarter/menuStarter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/Inventory.java" afterDir="false" />
-    </list>
+    <list default="true" id="477034c7-5a48-4415-903f-82b883793906" name="Changes" comment="feat(menuStarter): the option &quot;Select the method to set the initial values&quot; was added&#10;&#10;&#10;The program now ask to select the method to set the initial amount of the inventory's ingredients" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681876517029</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat(menuStarter): the option &quot;Select the method to set the initial values&quot; was added&#10;&#10;&#10;The program now ask to select the method to set the initial amount of the inventory's ingredients">
+      <created>1681883606692</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681883606692</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -179,19 +170,20 @@
     <MESSAGE value="fix(menuStarter): the crash caused by entering special characters instead of integers was fixed and the main class was renamed as &quot;menuStarter&quot;." />
     <MESSAGE value="fix(menuStarter): the crash caused by running the code from the terminal and using the &quot;build.gradlew&quot; was solved.&#10;&#10;&#10;the error was thrown automatically due the scanner used in the printer.mainMenu start with a unknown input and fail, causing a crash even before enter any value" />
     <MESSAGE value="fix(menuStarter): the option &quot;buy ingredients&quot; was fixed&#10;&#10;&#10;the program was taking the amount as a unit price of the ingredient, and for that reason was calculate a wrong price when the user buys any ingredient" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(menuStarter): the option &quot;buy ingredients&quot; was fixed&#10;&#10;&#10;the program was taking the amount as a unit price of the ingredient, and for that reason was calculate a wrong price when the user buys any ingredient" />
+    <MESSAGE value="feat(menuStarter): the option &quot;Select the method to set the initial values&quot; was added&#10;&#10;&#10;The program now ask to select the method to set the initial amount of the inventory's ingredients" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(menuStarter): the option &quot;Select the method to set the initial values&quot; was added&#10;&#10;&#10;The program now ask to select the method to set the initial amount of the inventory's ingredients" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/inventory/Inventory.java</url>
-          <line>92</line>
+          <line>98</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/inventory/Inventory.java</url>
-          <line>102</line>
+          <line>108</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
