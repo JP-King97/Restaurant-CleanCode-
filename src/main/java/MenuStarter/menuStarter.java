@@ -20,7 +20,12 @@ public class menuStarter {
         Scanner scanner = new Scanner(System.in);
         Printer printer = new Printer();
         Order order = new Order();
-        inventory.setInitialAmounts();
+        printSomething(() -> System.out.println("Please select the method to set the initial ingredient amount: \n" +
+                                                 "1. Set the Excel values\n" +
+                                                 "2. Set random values\n" +
+                                                 "3. Set the values manually\n"));
+
+        inventory.setInitialAmounts(scanner);
         inventory.setIngredientsUnitPrices();
         int optionSelected;
         do {

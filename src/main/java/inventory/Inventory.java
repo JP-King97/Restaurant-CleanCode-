@@ -37,9 +37,32 @@ public class Inventory {
     /**
      * Set the initial amount with the selected method
      */
-    public void setInitialAmounts(){
+    public void setInitialAmounts(Scanner scanner){
         InitialValuesMethod method = new InitialValuesMethod(INGREDIENTS_AMOUNTS, INGREDIENTS_NAMES);
-        method.setValuesFromExcel();
+        int option=0;
+        do{
+            try {
+                option = scanner.nextInt();
+                switch (option){
+                    case 1:
+                        method.setValuesFromExcel();
+                        break;
+                    case 2:
+                        method.setRandomValues();
+                        break;
+                    case 3:
+                        method.enterValuesManually();
+                        break;
+                    default:
+                    System.out.println("Option not valid, try it again");
+                    break;
+                }
+            }catch (Exception e){
+                System.out.println("Option not valid, try it again");
+                scanner.nextLine();
+            }
+        }while(option != 1 && option != 2 && option != 3);
+
     }
 
     public Map<Integer,Integer> setIngredientsUnitPrices(){
