@@ -1,23 +1,21 @@
 package account;
 
 public class MoneyAccount {
-
-    private int currentBalance = 100000;
+    private Double currentBalance = 100000.0;
 
     public MoneyAccount (){}
 
-    public int getCurrentBalance() {
+    public Double getCurrentBalance() {
         return currentBalance;
     }
 
-    public int Withdrawal (int withdrawal){
+    public Double Withdrawal (Double withdrawal){
         currentBalance = currentBalance - withdrawal;
         return currentBalance;
     }
 
-    public int Deposit (int payment){
+    public Double Deposit (Double payment){
         currentBalance = currentBalance + payment;
         return currentBalance;
     }
-
 }

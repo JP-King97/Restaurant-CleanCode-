@@ -2,37 +2,33 @@ package menu;
 
 import java.util.Map;
 
-public abstract class Dish extends Recipe {
+public abstract class Dish extends Recipe{
 
-    protected int recipeID;
-    protected int productionCost;
-    protected int sellingPrice;
-    private int ingredientTotalPrice;
+    protected double productionCost;
+    protected double sellingPrice;
+    protected double ingredientsTotalPrice;
     public Dish(int recipeID) {
         super(recipeID);
-        this.recipeID = recipeID;
-
     }
-    public Dish(){}
 
     /**
      * Abstract method that should return the production cost which in
      *  every child class will be defined with a different formula
      * @return production cost
      */
-    public abstract int getProductionCost();
+    public abstract double getProductionCost();
 
     /**
      * Calculate the selected ingredients total price
      *
      * @return the selected ingredients total priced
      */
-    public int getIngredientsTotalPrice(){
-        Map<Integer,Integer> ingredientUnitPrice = getIngredientsUnitPrices();
+    public double getIngredientsTotalPrice(){
+        Map<Integer,Double> ingredientUnitPrice = getRecipeIngredientsUnitPrices();
         for ( int i=0; i<getNumberOfIngredients();i++){
-            ingredientTotalPrice = ingredientTotalPrice + ingredientUnitPrice.get(i)* getRecipeAmounts().get(i);
+            ingredientsTotalPrice = ingredientsTotalPrice + ingredientUnitPrice.get(i)* getRecipeIngredientsAmounts().get(i);
         }
-        return ingredientTotalPrice;
+        return ingredientsTotalPrice;
     }
 
     /**
@@ -40,7 +36,7 @@ public abstract class Dish extends Recipe {
      *
      * @return Selling price of the selected dish
      */
-    public int getSellingPrice(){
+    public Double getSellingPrice(){
         sellingPrice=productionCost+getIngredientsTotalPrice()+1000;
         return sellingPrice;
     }

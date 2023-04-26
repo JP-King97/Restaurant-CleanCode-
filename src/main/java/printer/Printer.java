@@ -3,11 +3,11 @@ package printer;
 import account.MoneyAccount;
 import inventory.Inventory;
 import menu.Recipe;
+
 import java.util.Map;
 import java.util.Scanner;
 
 public class Printer {
-
     public Printer(){
     }
 
@@ -18,15 +18,15 @@ public class Printer {
      */
     public int mainMenu(Scanner scanner){
         System.out.println("////////////////////MAIN MENU////////////////////\n" +
-                           "            Please select an option\n"+
-                           "1.Print my current money amount.\n" +
-                           "2.Print my current ingredient inventory.\n" +
-                           "3.Buy ingredients.\n" +
-                           "4.Print my dishes inventory.\n" +
-                           "5.Make a dish.\n" +
-                           "6.Sell a dish.\n" +
-                           "7.EXIT.\n" +
-                           "/////////////////////////////////////////////////");
+                "            Please select an option\n"+
+                "1.Print my current money amount.\n" +
+                "2.Print my current ingredient inventory.\n" +
+                "3.Buy ingredients.\n" +
+                "4.Print my dishes inventory.\n" +
+                "5.Make a dish.\n" +
+                "6.Sell a dish.\n" +
+                "7.EXIT.\n" +
+                "/////////////////////////////////////////////////");
         return scanner.nextInt();
     }
 
@@ -41,14 +41,12 @@ public class Printer {
     /**
      * Print all the listed ingredients in the inventory and their amount as well.
      *
-     * @param ingredientsAmounts
-     * @param ingredientsNames
+     * @param inventory
      */
-    public void currentIngredientInventory(Map<Integer, Integer> ingredientsAmounts, Map<Integer, String> ingredientsNames,Map<Integer, Integer> ingredientsUnitPrices){
-        Inventory inventory = new Inventory(ingredientsAmounts,ingredientsNames,ingredientsUnitPrices);
+    public void currentIngredientInventory(Inventory inventory){
         System.out.printf("%15s||%15s%n","INGREDIENTS","QUANTITIES");
-        for (int i=0;i<ingredientsAmounts.size();i++){
-            System.out.printf("%15s%15s%n",inventory.getINGREDIENTS_NAMES().get(i),inventory.getINGREDIENTS_AMOUNTS().get(i));
+        for (int i=0;i<inventory.getIngredientsAmounts().size();i++){
+            System.out.printf("%15s%15s%n",inventory.getIngredientsNames().get(i),inventory.getIngredientsAmounts().get(i).intValue());
         }
     }
 

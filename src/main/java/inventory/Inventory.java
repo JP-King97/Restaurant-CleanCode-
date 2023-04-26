@@ -1,44 +1,23 @@
 package inventory;
 
 import account.MoneyAccount;
-import data.ExcelFileNumericalReader;
-import data.ExcelFileReader;
+import data.modifiers.NumericalDataModifier;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Inventory {
+    private Map<Integer,Double> ingredientsAmounts = new HashMap<>();
+    private Map<Integer,String> ingredientsNames = new HashMap<>();
+    private Map<Integer,Double> ingredientsUnitPrices = new HashMap<>();
 
-    private final Map<Integer, Integer> INGREDIENTS_AMOUNTS;
-    private final Map<Integer, String> INGREDIENTS_NAMES;
-    private final Map<Integer, Integer> INGREDIENTS_UNIT_PRICES;
-    private Map<Integer,Integer> ingredientsUnitPrices;
-
-    public Inventory(Map<Integer, Integer> INGREDIENTS_AMOUNTS,
-                     Map<Integer, String> INGREDIENTS_NAMES, Map<Integer, Integer> INGREDIENTS_UNIT_PRICES){
-    this.INGREDIENTS_AMOUNTS = INGREDIENTS_AMOUNTS;
-    this.INGREDIENTS_NAMES = INGREDIENTS_NAMES;
-    this.INGREDIENTS_UNIT_PRICES = INGREDIENTS_UNIT_PRICES;
+    public Inventory(){
     }
 
-    public Map<Integer, Integer> getINGREDIENTS_AMOUNTS() {
-        return INGREDIENTS_AMOUNTS;
-    }
-
-    public Map<Integer, String> getINGREDIENTS_NAMES() {
-        return INGREDIENTS_NAMES;
-    }
-
-    public Map<Integer, Integer> getINGREDIENTS_UNIT_PRICES() {
-        return INGREDIENTS_UNIT_PRICES;
-    }
-
-    /**
-     * Set the initial amount with the selected method
-     */
     public void setInitialAmounts(Scanner scanner){
-        InitialValuesMethod method = new InitialValuesMethod(INGREDIENTS_AMOUNTS, INGREDIENTS_NAMES);
+        InitialValues method = new InitialValues(ingredientsAmounts, ingredientsNames);
         int option=0;
         do{
             try {
@@ -54,24 +33,29 @@ public class Inventory {
                         method.enterValuesManually();
                         break;
                     default:
-                    System.out.println("Option not valid, try it again");
-                    break;
+                        System.out.println("Option not valid, try it again");
+                        break;
                 }
             }catch (Exception e){
                 System.out.println("Option not valid, try it again");
                 scanner.nextLine();
             }
         }while(option != 1 && option != 2 && option != 3);
-
     }
 
-    public Map<Integer,Integer> setIngredientsUnitPrices(){
-        ExcelFileReader reader = new ExcelFileNumericalReader("Prices");
+    public Map<Integer,String> getIngredientsNames(){ return ingredientsNames;}
+
+    public Map<Integer,Double> getIngredientsAmounts(){ return ingredientsAmounts;}
+
+    public Map<Integer,Double> getIngredientsUnitPrices(){ return ingredientsUnitPrices;}
+
+    public Map<Integer,Double> setIngredientsUnitPricesFromExcelFile(){
+        NumericalDataModifier numericalReader = new NumericalDataModifier("Prices",ingredientsUnitPrices);
         int numberOfIngredients = 36;
         for(int i = 0; i< numberOfIngredients; i++){
-            INGREDIENTS_UNIT_PRICES.put(i,reader.getNumericalValue(i,1));
+            ingredientsUnitPrices.put(i,numericalReader.getNumericalValueFromExcelFile(i,1));
         }
-        return INGREDIENTS_UNIT_PRICES;
+        return ingredientsUnitPrices;
     }
 
     /**
@@ -81,11 +65,10 @@ public class Inventory {
      * @param account
      */
     public void buyIngredients(Scanner scanner, MoneyAccount account){
-        int paymentAmount = 0;
+        Double paymentAmount = 0.0;
         paymentAmount = addPurchaseAmount(scanner, paymentAmount);
         account.Withdrawal(paymentAmount);
     }
-
     /**
      * Calculate the total payment amount of the purchased ingredients
      *
@@ -93,7 +76,7 @@ public class Inventory {
      * @param paymentAmount related to the purchased ingredients
      * @return total payment amount
      */
-    private int addPurchaseAmount(Scanner scanner, int paymentAmount){
+    private Double addPurchaseAmount(Scanner scanner, Double paymentAmount){
         String auxExit = "Y";
         do{
             System.out.println("Please introduce the ingredient ID and the amount in gr: ");
@@ -104,20 +87,15 @@ public class Inventory {
             System.out.print("continue?:Y or N\n");
             auxExit = scanner.next();
             //update the inventory
-            int currentAmount = getINGREDIENTS_AMOUNTS().get(ingredientID);
+            Double currentAmount = getIngredientsAmounts().get(ingredientID);
             updatedAmounts(ingredientID,(amount_gr+currentAmount));
-            paymentAmount = paymentAmount + ((getINGREDIENTS_UNIT_PRICES().get(ingredientID+1))*(amount_gr));
+            paymentAmount = paymentAmount + ((getIngredientsUnitPrices().get(ingredientID+1))*(amount_gr));
         }while(!Objects.equals(auxExit, "N"));
         return paymentAmount;
     }
-    /**
 
-     * Set new ingredients' amounts related to the ingredients' IDs
-     * @param ingredientID
-     * @param newAmount
-     */
-    public void updatedAmounts(int ingredientID,int newAmount){
-        INGREDIENTS_AMOUNTS.put(ingredientID,newAmount);
+    public void updatedAmounts(int ingredientID,Double newAmount){
+        ingredientsAmounts.put(ingredientID,newAmount);
     }
 
 }

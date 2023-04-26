@@ -4,31 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="477034c7-5a48-4415-903f-82b883793906" name="Changes" comment="feat(menuStarter): the option &quot;Select the method to set the initial values&quot; was added&#10;&#10;&#10;The program now ask to select the method to set the initial amount of the inventory's ingredients">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/gc.properties" beforeDir="false" />
+    <list default="true" id="759df328-655e-426e-9873-5cc0d131ec80" name="Changes" comment="refactor(All): the majority of the code was modified applying the SOLID principles">
+      <change afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/7.5.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/7.5.1/dependencies-accessors/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/7.5.1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/data/modifiers/NumericalDataModifier.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/data/modifiers/StringDataModifier.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/file/reader/ExcelFileReader.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/inventory/InitialValues.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/menu/Dessert.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/menu/Drink.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/starter/menu/StarterMenu.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/Inventory.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/data/modifiers/NumericalDataModifier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/data/modifiers/StringDataModifier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/file/reader/ExcelFileReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/inventory/InitialValues.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Inventory.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.1/checksums/sha1-checksums.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1/executionHistory/executionHistory.lock" afterDir="false" />
@@ -36,15 +38,59 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/inventory/InitialValuesMethod.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/inventory/InitialValuesMethod.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Inventory.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Order.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Printer.class.uniqueId3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/menuStarter.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inventory.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MenuStarter/menuStarter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/account/MoneyAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/account/MoneyAccount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/ExcelFileNumericalReader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/ExcelFileReader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/data/ExcelFileStringReader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/inventory/InitialValuesMethod.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/inventory/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/inventory/Inventory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/menu/Desserts.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/menu/Dish.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/menu/Dish.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/menu/Drinks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/menu/Food.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/menu/Food.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/menu/Recipe.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/menu/Recipe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/orders/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/orders/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/orders/OrderHistory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/printer/Printer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/printer/Printer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/transactions/History.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/FamilyRestaurant-1.0-SNAPSHOT.tar" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/FamilyRestauran2-1.0-SNAPSHOT.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/FamilyRestaurant-1.0-SNAPSHOT.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/FamilyRestauran2-1.0-SNAPSHOT.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/FamilyRestaurant-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/gs-gradle-0.1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/gs-gradle-0.1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/FamilyRestaurant" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/FamilyRestauran2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/FamilyRestaurant.bat" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/FamilyRestauran2.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/InitialValuesMethod.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Inventory.class.uniqueId0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/InitialValuesMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/InitialValuesMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MenuStarter/menuStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/starter/menu/StarterMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/account/MoneyAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/account/MoneyAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/ExcelFileNumericalReader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/ExcelFileReader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/ExcelFileStringReader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/InitialValuesMethod.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/menu/Desserts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/Dessert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/menu/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/Dish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/menu/Drinks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/Drink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/menu/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/Food.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/menu/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/Recipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/orders/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/orders/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/orders/OrderHistory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/printer/Print.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/printer/Print.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/printer/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/printer/Printer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/transactions/History.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,8 +105,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -70,28 +116,28 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2OJLPdIsdiJQgp9JDOBGu2HERSf" />
+  <component name="ProjectId" id="2OnU3G1dJ5eShdblFCvn4tQLwfn" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/User/IdeaProjects/FamilyRestaurant/Restaurant-CleanCode-",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
-  <component name="RunManager" selected="Application.menuStarter">
-    <configuration name="menuStarter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MenuStarter.menuStarter" />
-      <module name="FamilyRestaurant.main" />
+}]]></component>
+  <component name="RunManager">
+    <configuration name="StarterMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="starter.menu.StarterMenu" />
+      <module name="FamilyRestauran2.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="MenuStarter.*" />
+          <option name="PATTERN" value="starter.menu.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,133 +145,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Restaurant-CleanCode- [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="dependencies" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Restaurant-CleanCode- [miTarea]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="miTarea" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Restaurant-CleanCode- [dependencies]" />
-        <item itemvalue="Gradle.Restaurant-CleanCode- [miTarea]" />
-        <item itemvalue="Application.menuStarter" />
+        <item itemvalue="Application.StarterMenu" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="477034c7-5a48-4415-903f-82b883793906" name="Changes" comment="" />
-      <created>1681273716259</created>
+      <changelist id="759df328-655e-426e-9873-5cc0d131ec80" name="Changes" comment="" />
+      <created>1682195640061</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1681273716259</updated>
+      <updated>1682195640061</updated>
     </task>
-    <task id="LOCAL-00001" summary="fix(menuStarter): the crash caused by entering special characters instead of integers was fixed and the main class was renamed as &quot;menuStarter&quot;.">
-      <created>1681367669361</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1681367669361</updated>
-    </task>
-    <task id="LOCAL-00002" summary="fix(menuStarter): the crash caused by running the code from the terminal and using the &quot;build.gradlew&quot; was solved.&#10;&#10;&#10;the error was thrown automatically due the scanner used in the printer.mainMenu start with a unknown input and fail, causing a crash even before enter any value">
-      <created>1681587666055</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1681587666055</updated>
-    </task>
-    <task id="LOCAL-00003" summary="fix(menuStarter): the option &quot;buy ingredients&quot; was fixed&#10;&#10;&#10;the program was taking the amount as a unit price of the ingredient, and for that reason was calculate a wrong price when the user buys any ingredient">
-      <created>1681876510701</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1681876510701</updated>
-    </task>
-    <task id="LOCAL-00004" summary="fix(menuStarter): the option &quot;buy ingredients&quot; was fixed&#10;&#10;&#10;the program was taking the amount as a unit price of the ingredient, and for that reason was calculate a wrong price when the user buys any ingredient">
-      <created>1681876517029</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1681876517029</updated>
-    </task>
-    <task id="LOCAL-00005" summary="feat(menuStarter): the option &quot;Select the method to set the initial values&quot; was added&#10;&#10;&#10;The program now ask to select the method to set the initial amount of the inventory's ingredients">
-      <created>1681883606692</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1681883606692</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix(menuStarter): the crash caused by entering special characters instead of integers was fixed and the main class was renamed as &quot;menuStarter&quot;." />
-    <MESSAGE value="fix(menuStarter): the crash caused by running the code from the terminal and using the &quot;build.gradlew&quot; was solved.&#10;&#10;&#10;the error was thrown automatically due the scanner used in the printer.mainMenu start with a unknown input and fail, causing a crash even before enter any value" />
-    <MESSAGE value="fix(menuStarter): the option &quot;buy ingredients&quot; was fixed&#10;&#10;&#10;the program was taking the amount as a unit price of the ingredient, and for that reason was calculate a wrong price when the user buys any ingredient" />
-    <MESSAGE value="feat(menuStarter): the option &quot;Select the method to set the initial values&quot; was added&#10;&#10;&#10;The program now ask to select the method to set the initial amount of the inventory's ingredients" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(menuStarter): the option &quot;Select the method to set the initial values&quot; was added&#10;&#10;&#10;The program now ask to select the method to set the initial amount of the inventory's ingredients" />
+    <MESSAGE value="refactor(All): the majority of the code was modified applying the SOLID principles" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(All): the majority of the code was modified applying the SOLID principles" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/menu/Recipe.java</url>
-          <line>142</line>
-          <option name="timeStamp" value="18" />
+          <url>file://$PROJECT_DIR$/src/main/java/printer/Printer.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/printer/Printer.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/src/main/java/menu/Recipe.java</url>
+          <line>122</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/file/reader/ExcelFileReader.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
