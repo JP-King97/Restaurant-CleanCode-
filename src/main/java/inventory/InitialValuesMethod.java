@@ -8,9 +8,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class InitialValuesMethod {
-
-
-
     private final Map<Integer, Integer> INGREDIENTS_AMOUNTS;
     private final Map<Integer, String> INGREDIENTS_NAMES;
     private final String SHEET_NAME = "WarehouseQuantities";
@@ -23,7 +20,7 @@ public class InitialValuesMethod {
     }
 
     /**
-     * set the initial values from an Excel File
+     * set the initial values from an Excel File.
      */
     public void setValuesFromExcel() {
         ExcelFileReader reader = new ExcelFileReader(INGREDIENTS_AMOUNTS, INGREDIENTS_NAMES, SHEET_NAME);
