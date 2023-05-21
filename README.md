@@ -23,12 +23,24 @@ For the desserts:
     
 Each dish also contains a selling price calculated by the production cost, the cost of the ingredients, and $1000. The desserts also include the number of calories in the recipe.
 
-The program needs first set the initial amounts of the ingredients in the inventory:
+The program first present the option of synchronize the database with the local Excel file:
 
-![image](https://user-images.githubusercontent.com/102275322/232973815-d48ed61d-d8e7-43c6-aef5-d2ce90c7778a.png)
+![image](https://github.com/JP-King97/Restaurant-CleanCode-/assets/102275322/0a12e00b-a09b-401a-8901-2e6385b5ab97)
 
-And the initial balance account is set in $100.000, after that the software is able to display the following menu:
+The initial balance account is set in $100.000, after that the software is able to display the following menu:
 
 ![image](https://user-images.githubusercontent.com/102275322/232967634-677577e9-9f12-44bf-9463-620020363f99.png)
 
 Options 1, 2, and 4 only display information (account balance, ingredients inventory, and available dishes, in that order). On the other hand, options 3, 5, and 7 modify the information (add ingredients amounts, decrease ingredients amount, and add the payment for the dish). Last but not least option number 7 ends the program.
+
+A H2 database was included and the format of the Excel File is new.
+
+![image](https://github.com/JP-King97/Restaurant-CleanCode-/assets/102275322/6a3b455b-34b2-4674-bddc-a60551b1966e)
+
+All the recipes must be placed with 1 column between each one. Also a new table was created and contains the recipes' IDs, names, numbers of ingredients and one cell with the total number of recipes.
+
+![image](https://github.com/JP-King97/Restaurant-CleanCode-/assets/102275322/d17231a9-9efa-4197-b63a-f1bd0c4d606e)
+
+
+
+
