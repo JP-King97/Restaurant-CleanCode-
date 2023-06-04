@@ -1,0 +1,36 @@
+version: '3.8'
+networks:
+  postgres_network:
+    name: postgres_net
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres_container
+    restart: always
+    environment:
+      POSTGRES_HOST: localhost
+      POSTGRES_PASSWORD: j3141592
+      POSTGRES_USER: postgres
+      POSTGRES_DB: family_restaurant_DB
+
+
+  family_restaurant:
+    container_name: family_restaurant_container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: "family_restaurant"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: family_restaurant_db
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: j3141592
+
+
+   # depends_on:
+   #   - postgres
