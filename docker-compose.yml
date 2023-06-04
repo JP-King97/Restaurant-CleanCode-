@@ -1,8 +1,9 @@
-version: '3.8'
-networks:
-  postgres_network:
-    name: postgres_net
-    driver: bridge
+version: '3.9'
+
+#networks:
+#  postgres_network:
+#    name: postgres_net
+#    driver: local
 
 services:
   postgres:
@@ -10,10 +11,15 @@ services:
     container_name: postgres_container
     restart: always
     environment:
-      POSTGRES_HOST: localhost
+      POSTGRES_HOST: postgres
       POSTGRES_PASSWORD: j3141592
       POSTGRES_USER: postgres
-      POSTGRES_DB: family_restaurant_DB
+      POSTGRES_DB: family_restaurant_db
+    ports:
+      - "5432:5432"
+    command: postgres
+    expose:
+      - 5432
 
 
   family_restaurant:
@@ -30,7 +36,3 @@ services:
       DATABASE_NAME: family_restaurant_db
       DATABASE_USER: postgres
       DATABASE_PASSWORD: j3141592
-
-
-   # depends_on:
-   #   - postgres

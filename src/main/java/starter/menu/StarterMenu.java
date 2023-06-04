@@ -15,7 +15,7 @@ public class StarterMenu {
 
     public static void main(String[] args) {
         DatabaseConnection dbConnector = new DatabaseConnection();
-        dbConnector.connect("family_restaurant_DB", "postgres", "j3141592");
+        dbConnector.connect("family_restaurant_db", "postgres", "j3141592");
         MoneyAccount account = new MoneyAccount(dbConnector);
         Inventory inventory = new Inventory(dbConnector);
         Scanner scanner = new Scanner(System.in);

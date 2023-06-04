@@ -10,7 +10,7 @@ public class DatabaseConnection {
         dbConnection = null;
         try{
                 Class.forName("org.postgresql.Driver");
-            dbConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/"+dbName,user,password);
+            dbConnection = DriverManager.getConnection("jdbc:postgresql://postgres:5432/"+dbName,user,password);
                 if(dbConnection!=null){
                     System.out.println("Connection Established");
                 }else{

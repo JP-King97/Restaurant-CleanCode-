@@ -1,7 +1,19 @@
 
-#////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
 FROM maven:3.9.1-amazoncorretto-20
-ARG BUILD_ENV
+
 
 # Set the working directory inside the container
 WORKDIR /FamilyRestaurant_PostgresDocker/
@@ -16,11 +28,8 @@ RUN mvn dependency:go-offline
 COPY . /FamilyRestaurant_PostgresDocker
 
 # Build the Maven project
-RUN if [ "$BUILD_ENV" = "development" ]; then \
-      mvn clean install; \
-    else \
-      mvn clean package; \
-    fi
+RUN mvn clean install;
+
 
 
 #RUN mvn exec:java -Dexec.mainClass="starter.menu.StarterMenu"
