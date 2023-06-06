@@ -1,19 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 FROM maven:3.9.1-amazoncorretto-20
-
 
 # Set the working directory inside the container
 WORKDIR /FamilyRestaurant_PostgresDocker/
@@ -29,8 +14,6 @@ COPY . /FamilyRestaurant_PostgresDocker
 
 # Build the Maven project
 RUN mvn clean install;
-
-
 
 #RUN mvn exec:java -Dexec.mainClass="starter.menu.StarterMenu"
 CMD mvn exec:java -Dexec.mainClass="starter.menu.StarterMenu"

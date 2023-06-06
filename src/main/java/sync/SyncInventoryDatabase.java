@@ -14,6 +14,7 @@ public class SyncInventoryDatabase {
     }
 
     public void syncDatabaseWithExcel(){
+        createTables();
         erasePreviousInventoryInformation();
         ExcelFileReader reader = new ExcelFileReader("Ingredients");
         int excelNumberOfIngredients = reader.getNumericalValueFromExcelFile(0,5).intValue();
@@ -23,6 +24,27 @@ public class SyncInventoryDatabase {
             if(!ingredientExists(excelName)){
                 inventory.addNewIngredient(i);
             }
+        }
+    }
+
+    private void createTables(){
+        try{
+            dbConnection.executeQuery("CREATE TABLE Recipes(" +
+                                        "Recipe_ID smallserial NOT NULL," +
+                                        "Recipe_Name varchar(40) NOT NULL," +
+                                        "Number_Of_Ingredients int NOT NULL," +
+                                        "Dish_Type varchar(10) NOT NULL);");
+            dbConnection.executeQuery("CREATE TABLE Ingredients(" +
+                                        "Ingredient_ID smallserial NOT NULL," +
+                                        "Ingredient_Name varchar(40) NOT NULL," +
+                                        "Ingredient_Inventory_Amount_gr int NOT NULL," +
+                                        "Ingredient_Unit_Price double precision NOT NULL);");
+            dbConnection.executeQuery("CREATE TABLE Account_History(" +
+                                        "Movement_ID smallserial NOT NULL," +
+                                        "Current_Money_Account double precision NOT NULL);");
+            dbConnection.executeUpdate("INSERT INTO Account_history (Current_Money_Account) VALUES (100000);");
+        }catch(Exception e){
+            System.out.println("Error "+e);
         }
     }
 
@@ -55,12 +77,5 @@ public class SyncInventoryDatabase {
             check =  true;
         }
         return check;
-    }
-
-    public static void main(String[] args) {
-        DatabaseConnection dbConnector = new DatabaseConnection();
-        dbConnector.connect("family_restaurant", "postgres", "j3141592");
-        SyncInventoryDatabase sync = new SyncInventoryDatabase(dbConnector);
-        sync.syncDatabaseWithExcel();
     }
 }
