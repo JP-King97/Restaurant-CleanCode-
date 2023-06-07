@@ -82,6 +82,9 @@ public class StarterMenu {
                     }
                     break;
                 case 6:
+                    printSomething(()-> System.out.println("These are the dishes requested but not delivered: "));
+                    printer.currentDishesNotDelivered(order.getNotDeliveredDishes());
+                    printSomething(()-> System.out.println("---Please introduce the order ID that you want to sell--- "));
                     printSomething(() -> System.out.println("Please introduce the recipe ID:"));
                     try {
                         int recipeID = scanner.nextInt();

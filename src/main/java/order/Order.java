@@ -94,6 +94,7 @@ public class Order {
     }
 //
 
+    //// ESTA MALO
     public void updateOrderHistory(String action, String Recipe_name, String Type_of_dish){
         try {
             ResultSet rs = dbConnection.executeQuery("SELECT MAX(Order_ID) FROM Orders;");
@@ -110,6 +111,17 @@ public class Order {
         }catch(Exception e){
             System.out.println("Error "+e);
         }
+    }
+
+    public ResultSet getNotDeliveredDishes(){
+        ResultSet rs = null;
+        try{
+            rs = dbConnection.executeQuery("SELECT * FROM orders WHERE state='Requested';");
+
+        }catch(Exception e){
+            System.out.println("Error "+e);
+        }
+        return rs;
     }
 
 

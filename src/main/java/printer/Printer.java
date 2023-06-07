@@ -4,6 +4,7 @@ import account.MoneyAccount;
 import connection.DatabaseConnection;
 import inventory.Inventory;
 import menu.Recipe;
+import order.Order;
 
 import java.sql.ResultSet;
 import java.util.Scanner;
@@ -70,11 +71,33 @@ public class Printer {
             Recipe numberOfRecipes = new Recipe(dbConnection);
             for(int i=1; i <= numberOfRecipes.getNumberOfRecipes() ; i++){
                 Recipe recipe = new Recipe(dbConnection,i);
-                System.out.printf("%10s||%20s%n",i, recipe.getRecipeName());
+                System.out.printf("%10s||%30s%n",i, recipe.getRecipeName());
             }
         }catch(Exception e){
             System.out.println("Error "+e);
         }
+    }
+
+    public void currentDishesNotDelivered(ResultSet notDeliveredDishes){
+        System.out.printf("%15s||%30s%n","ORDER_ID","DISH");
+        try{
+            while(notDeliveredDishes.next()){
+                int orderID = notDeliveredDishes.getInt("order_ID");
+                String recipeName = notDeliveredDishes.getString("recipe_name");
+                System.out.printf("%15s||%30s%n",orderID,recipeName);
+
+            }
+        }catch(Exception e){
+            System.out.println("Error "+e);
+        }
+    }
+
+    public static void main(String[] args) {
+        DatabaseConnection dbConnection = new DatabaseConnection();
+        dbConnection.connect("family_restaurant_db", "postgres", "j3141592");
+        Order order = new Order(dbConnection);
+        Printer printer = new Printer();
+        printer.currentDishesNotDelivered(order.getNotDeliveredDishes());
     }
 
 }
