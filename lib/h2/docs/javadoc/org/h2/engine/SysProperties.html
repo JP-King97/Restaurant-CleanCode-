@@ -538,10 +538,10 @@ The constants defined in this class are initialized from system properties.
 <h4 id="h2.syncMethod"><span class="methodName">SYNC_METHOD
 
 </span></h4>
-<div class="item">System property <code>h2.syncMethod</code> (default: sync).<br />
+<div class="item">System property <code>h2.syncMethod</code> (default: Database).<br />
  What method to call when closing the database, on checkpoint, and on
  CHECKPOINT SYNC. The following options are supported:
- "sync" (default): RandomAccessFile.getFD().sync();
+ "Database" (default): RandomAccessFile.getFD().Database();
  "force": RandomAccessFile.getChannel().force(true);
  "forceFalse": RandomAccessFile.getChannel().force(false);
  "": do not call a method (fast but there is a risk of data loss

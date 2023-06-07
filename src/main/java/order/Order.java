@@ -127,8 +127,12 @@ public class Order {
         }catch(Exception e){
             System.out.println("Error "+e);
         }
+    }
+
+    public void resetValues(){
 
     }
+
 
     public static void main(String[] args) {
         DatabaseConnection dbConnection = new DatabaseConnection();

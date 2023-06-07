@@ -348,8 +348,8 @@ There is no transaction log, no undo log,
 and there are no in-place updates (however, unused chunks are overwritten by default).
 </p><p>
 Old data is kept for at least 45 seconds (configurable),
-so that there are no explicit sync operations required to guarantee data consistency.
-An application can also sync explicitly when needed.
+so that there are no explicit Database operations required to guarantee data consistency.
+An application can also Database explicitly when needed.
 To reuse disk space, the chunks with the lowest amount of live data are compacted
 (the live data is stored again in the next chunk).
 To improve data locality and disk space usage, the plan is to automatically defragment and compact data.

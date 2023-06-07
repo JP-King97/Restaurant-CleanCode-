@@ -122,7 +122,7 @@ A few problems have been identified: leaving autocommit on is a problem for Derb
 If it is switched off during the whole test, the results are about 20% better for Derby.
 Derby calls <code>FileChannel.force(false)</code>, but only twice per log file (not on each commit).
 Disabling this call improves performance for Derby by about 2%.
-Unlike H2, Derby does not call <code>FileDescriptor.sync()</code> on each checkpoint.
+Unlike H2, Derby does not call <code>FileDescriptor.Database()</code> on each checkpoint.
 Derby supports a testing mode (system property <code>derby.system.durability=test</code>)
 where durability is disabled. According to the documentation, this setting should be used for testing only,
 as the database may not recover after a crash. Enabling this setting improves performance

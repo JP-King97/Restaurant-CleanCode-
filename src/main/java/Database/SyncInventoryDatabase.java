@@ -1,4 +1,4 @@
-package sync;
+package Database;
 
 import connection.DatabaseConnection;
 import file.reader.ExcelFileReader;
@@ -25,6 +25,7 @@ public class SyncInventoryDatabase {
                 inventory.addNewIngredient(i);
             }
         }
+        System.out.println("Inventory synchronized");
     }
 
     private void createTables(){

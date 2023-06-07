@@ -1,13 +1,15 @@
 package starter.menu;
 
+import Database.ResetAccountHistoryDatabase;
+import Database.ResetOrdersDatabase;
 import account.MoneyAccount;
 import connection.DatabaseConnection;
 import inventory.Inventory;
 import order.Order;
 import printer.Print;
 import printer.Printer;
-import sync.SyncInventoryDatabase;
-import sync.SyncRecipesDatabase;
+import Database.SyncInventoryDatabase;
+import Database.SyncRecipesDatabase;
 
 import java.util.Scanner;
 
@@ -21,17 +23,18 @@ public class StarterMenu {
         Scanner scanner = new Scanner(System.in);
         Printer printer = new Printer();
         Order order = new Order(dbConnector);
-        
+        printSomething(() -> System.out.println("By synchronizing you will lose your previous data (including Account and Orders history)"));
         printSomething(() -> System.out.println("Do you want to synchronize the Database? Yes/No (Y/N): "));
         String answer = scanner.nextLine();
         if(answer.equals("Y") || answer.equals("y")){
             SyncInventoryDatabase syncInventory = new SyncInventoryDatabase(dbConnector);
             SyncRecipesDatabase syncRecipes = new SyncRecipesDatabase(dbConnector);
+            ResetOrdersDatabase resetOrders = new ResetOrdersDatabase(dbConnector);
+            ResetAccountHistoryDatabase resetMoneyAccountHistory = new ResetAccountHistoryDatabase(dbConnector);
             syncInventory.syncDatabaseWithExcel();
-            System.out.println("Inventory synchronized");
             syncRecipes.syncDatabaseWithExcel();
-            System.out.println("Recipes synchronized");
-
+            resetOrders.resetDatabase();
+            resetMoneyAccountHistory.resetDatabase();
         }else{
             System.out.println("Inventory and Recipes NOT synchronized");
         }

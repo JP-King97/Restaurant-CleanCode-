@@ -1,4 +1,4 @@
-package sync;
+package Database;
 
 import connection.DatabaseConnection;
 import file.reader.ExcelFileReader;
@@ -31,7 +31,7 @@ public class SyncRecipesDatabase {
                 recipe.insertNewData(excelName);
             }
         }
-
+        System.out.println("Recipes synchronized");
     }
 
     private void erasePreviousRecipeInformation(){

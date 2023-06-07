@@ -837,7 +837,7 @@ or about 120 revolutions per second. There is an overhead, so the maximum write 
 Calling <code>fsync</code> flushes the buffers. There are two ways to do that in Java:
 </p>
 <ul>
-<li><code>FileDescriptor.sync()</code>. The documentation says that this forces all system
+<li><code>FileDescriptor.Database()</code>. The documentation says that this forces all system
 buffers to synchronize with the underlying device.
 This method is supposed to return after all in-memory modified copies of buffers associated with this file descriptor
 have been written to the physical medium.
@@ -847,7 +847,7 @@ to force any updates to this channel's file to be written to the storage device 
 <p>
 By default, MySQL calls <code>fsync</code> for each commit. When using one of those methods, only around 60 write operations
 per second can be achieved, which is consistent with the RPM rate of the hard drive used.
-Unfortunately, even when calling <code>FileDescriptor.sync()</code> or
+Unfortunately, even when calling <code>FileDescriptor.Database()</code> or
 <code>FileChannel.force()</code>,
 data is not always persisted to the hard drive, because most hard drives do not obey
 <code>fsync()</code>: see

@@ -69,7 +69,7 @@ public class AbbaDetector {
             String thread = "[thread " + Thread.currentThread().getId() + "]";
             String indent = new String(new char[stack.size() * 2]).replace((char) 0, ' ');
             System.out.println(thread + " " + indent +
-                    "sync " + getObjectName(o));
+                    "Database " + getObjectName(o));
         }
         if (stack.size() > 0) {
             markHigher(o, stack);

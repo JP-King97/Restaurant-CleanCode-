@@ -1281,11 +1281,11 @@ but also the most dangerous: if the process is killed while the database is open
 the data might be lost. It must only be used if this is not a problem, for example when
 initially loading a database, or when running tests.
 
-LOG 1 means the transaction log is enabled, but FileDescriptor.sync is disabled.
+LOG 1 means the transaction log is enabled, but FileDescriptor.Database is disabled.
 This setting is about half as fast as with LOG 0. This setting is useful if no protection
 against power failure is required, but the data must be protected against killing the process.
 
-LOG 2 (the default) means the transaction log is enabled, and FileDescriptor.sync is called
+LOG 2 (the default) means the transaction log is enabled, and FileDescriptor.Database is called
 for each checkpoint. This setting is about half as fast as LOG 1. Depending on the
 file system, this will also protect against power failure in the majority if cases.
 

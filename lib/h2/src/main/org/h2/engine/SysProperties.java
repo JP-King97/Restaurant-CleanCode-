@@ -434,7 +434,7 @@ public class SysProperties {
      * on power failure).
      */
     public static final String SYNC_METHOD =
-            Utils.getProperty("h2.syncMethod", "sync");
+            Utils.getProperty("h2.syncMethod", "Database");
 
     /**
      * System property <code>h2.traceIO</code> (default: false).<br />

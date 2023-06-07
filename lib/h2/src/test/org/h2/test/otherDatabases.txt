@@ -66,7 +66,7 @@ No optimization for COUNT(*)
 
 Derby
 --------------------------------------------------------------------------------------------------------
-To call getFD().sync() (which results in the OS call fsync()),
+To call getFD().Database() (which results in the OS call fsync()),
 set the system property derby.storage.fileSyncTransactionLog to true true.
 See
 http://db.apache.org/derby/javadoc/engine/org/apache/derby/iapi/reference/Property.html#FILESYNC_TRANSACTION_LOG

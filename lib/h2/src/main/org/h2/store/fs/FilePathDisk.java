@@ -418,7 +418,7 @@ class FileDisk extends FileBase {
         String m = SysProperties.SYNC_METHOD;
         if ("".equals(m)) {
             // do nothing
-        } else if ("sync".equals(m)) {
+        } else if ("Database".equals(m)) {
             file.getFD().sync();
         } else if ("force".equals(m)) {
             file.getChannel().force(true);

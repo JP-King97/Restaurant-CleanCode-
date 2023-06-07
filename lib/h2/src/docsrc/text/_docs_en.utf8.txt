@@ -737,7 +737,7 @@ rws
  Calling <code>fsync</code> flushes the buffers. There are two ways to do that in Java: 
 
 @advanced_1246_code
-FileDescriptor.sync()
+FileDescriptor.Database()
 
 @advanced_1247_li
 . The documentation says that this forces all system buffers to synchronize with the underlying device. This method is supposed to return after all in-memory modified copies of buffers associated with this file descriptor have been written to the physical medium. 
@@ -749,7 +749,7 @@ FileChannel.force()
 . This method is supposed to force any updates to this channel's file to be written to the storage device that contains it. 
 
 @advanced_1250_p
- By default, MySQL calls <code>fsync</code> for each commit. When using one of those methods, only around 60 write operations per second can be achieved, which is consistent with the RPM rate of the hard drive used. Unfortunately, even when calling <code>FileDescriptor.sync()</code> or <code>FileChannel.force()</code>, data is not always persisted to the hard drive, because most hard drives do not obey <code>fsync()</code>: see <a href="http://hardware.slashdot.org/article.pl?sid=05/05/13/0529252">Your Hard Drive Lies to You</a>. In Mac OS X, <code>fsync</code> does not flush hard drive buffers. See <a href="http://lists.apple.com/archives/darwin-dev/2005/Feb/msg00072.html">Bad fsync?</a>. So the situation is confusing, and tests prove there is a problem. 
+ By default, MySQL calls <code>fsync</code> for each commit. When using one of those methods, only around 60 write operations per second can be achieved, which is consistent with the RPM rate of the hard drive used. Unfortunately, even when calling <code>FileDescriptor.Database()</code> or <code>FileChannel.force()</code>, data is not always persisted to the hard drive, because most hard drives do not obey <code>fsync()</code>: see <a href="http://hardware.slashdot.org/article.pl?sid=05/05/13/0529252">Your Hard Drive Lies to You</a>. In Mac OS X, <code>fsync</code> does not flush hard drive buffers. See <a href="http://lists.apple.com/archives/darwin-dev/2005/Feb/msg00072.html">Bad fsync?</a>. So the situation is confusing, and tests prove there is a problem.
 
 @advanced_1251_p
  Trying to flush hard drive buffers is hard, and if you do the performance is very bad. First you need to make sure that the hard drive actually flushes all buffers. Tests show that this can not be done in a reliable way. Then the maximum number of transactions is around 60 per second. Because of those reasons, the default behavior of H2 is to delay writing committed transactions. 
@@ -3065,7 +3065,7 @@ Is it Reliable?
  That is not easy to say. It is still a quite new product. A lot of tests have been written, and the code coverage of these tests is higher than 80% for each package. Randomized stress tests are run regularly. But there are probably still bugs that have not yet been found (as with most software). Some features are known to be dangerous, they are only supported for situations where performance is more important than reliability. Those dangerous features are: 
 
 @faq_1042_li
-Disabling the transaction log or FileDescriptor.sync() using LOG=0 or LOG=1. 
+Disabling the transaction log or FileDescriptor.Database() using LOG=0 or LOG=1.
 
 @faq_1043_li
 Using the transaction isolation level <code>READ_UNCOMMITTED</code> (<code>LOCK_MODE 0</code>) while at the same time using multiple connections. 
@@ -7499,7 +7499,7 @@ Log Structured Storage
  There are usually two write operations per chunk: one to store the chunk data (the pages), and one to update the file header (so it points to the latest chunk). If the chunk is appended at the end of the file, the file header is only written at the end of the chunk. There is no transaction log, no undo log, and there are no in-place updates (however, unused chunks are overwritten by default). 
 
 @mvstore_1085_p
- Old data is kept for at least 45 seconds (configurable), so that there are no explicit sync operations required to guarantee data consistency. An application can also sync explicitly when needed. To reuse disk space, the chunks with the lowest amount of live data are compacted (the live data is stored again in the next chunk). To improve data locality and disk space usage, the plan is to automatically defragment and compact data. 
+ Old data is kept for at least 45 seconds (configurable), so that there are no explicit Database operations required to guarantee data consistency. An application can also Database explicitly when needed. To reuse disk space, the chunks with the lowest amount of live data are compacted (the live data is stored again in the next chunk). To improve data locality and disk space usage, the plan is to automatically defragment and compact data.
 
 @mvstore_1086_p
  Compared to traditional storage engines (that use a transaction log, undo log, and main storage area), the log structured storage is simpler, more flexible, and typically needs less disk operations per change, as data is only written once instead of twice or 3 times, and because the B-tree pages are always full (they are stored next to each other) and can be easily compressed. But temporarily, disk space usage might actually be a bit higher than for a regular database, as disk space is not immediately re-used (there are no in-place updates). 
@@ -8561,7 +8561,7 @@ HSQLDB
 Derby
 
 @performance_1248_p
- Version 10.10.1.1 was used for the test. Derby is clearly the slowest embedded database in this test. This seems to be a structural problem, because all operations are really slow. It will be hard for the developers of Derby to improve the performance to a reasonable level. A few problems have been identified: leaving autocommit on is a problem for Derby. If it is switched off during the whole test, the results are about 20% better for Derby. Derby calls <code>FileChannel.force(false)</code>, but only twice per log file (not on each commit). Disabling this call improves performance for Derby by about 2%. Unlike H2, Derby does not call <code>FileDescriptor.sync()</code> on each checkpoint. Derby supports a testing mode (system property <code>derby.system.durability=test</code>) where durability is disabled. According to the documentation, this setting should be used for testing only, as the database may not recover after a crash. Enabling this setting improves performance by a factor of 2.6 (embedded mode) or 1.4 (server mode). Even if enabled, Derby is still less than half as fast as H2 in default mode. 
+ Version 10.10.1.1 was used for the test. Derby is clearly the slowest embedded database in this test. This seems to be a structural problem, because all operations are really slow. It will be hard for the developers of Derby to improve the performance to a reasonable level. A few problems have been identified: leaving autocommit on is a problem for Derby. If it is switched off during the whole test, the results are about 20% better for Derby. Derby calls <code>FileChannel.force(false)</code>, but only twice per log file (not on each commit). Disabling this call improves performance for Derby by about 2%. Unlike H2, Derby does not call <code>FileDescriptor.Database()</code> on each checkpoint. Derby supports a testing mode (system property <code>derby.system.durability=test</code>) where durability is disabled. According to the documentation, this setting should be used for testing only, as the database may not recover after a crash. Enabling this setting improves performance by a factor of 2.6 (embedded mode) or 1.4 (server mode). Even if enabled, Derby is still less than half as fast as H2 in default mode.
 
 @performance_1249_h4
 PostgreSQL
@@ -10187,7 +10187,7 @@ Oracle compatibility: support NLS_DATE_FORMAT.
 Support for Thread.interrupt to cancel running statements. 
 
 @roadmap_1233_li
-Cluster: add feature to make sure cluster nodes can not get out of sync (for example by stopping one process). 
+Cluster: add feature to make sure cluster nodes can not get out of Database (for example by stopping one process).
 
 @roadmap_1234_li
 H2 Console: support CLOB/BLOB download using a link. 
