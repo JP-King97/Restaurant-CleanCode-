@@ -21,7 +21,7 @@ public class StarterMenu {
         Scanner scanner = new Scanner(System.in);
         Printer printer = new Printer();
         Order order = new Order(dbConnector);
-
+        
         printSomething(() -> System.out.println("Do you want to synchronize the Database? Yes/No (Y/N): "));
         String answer = scanner.nextLine();
         if(answer.equals("Y") || answer.equals("y")){
@@ -31,6 +31,7 @@ public class StarterMenu {
             System.out.println("Inventory synchronized");
             syncRecipes.syncDatabaseWithExcel();
             System.out.println("Recipes synchronized");
+
         }else{
             System.out.println("Inventory and Recipes NOT synchronized");
         }

@@ -45,10 +45,12 @@ public class Inventory {
     }
 
     //these methods show the information of each column in the table
-    public ResultSet getIngredientsAmounts(){
-        ResultSet ingredientsAmounts = null;
+    public int getIngredientAmountByID(int ingredient_ID){
+        int ingredientsAmounts = 0;
         try {
-            ingredientsAmounts = dbConnection.executeQuery("SELECT INGREDIENT_INVENTORY_AMOUNT_GR FROM Ingredients");
+            ResultSet rs = dbConnection.executeQuery("SELECT INGREDIENT_INVENTORY_AMOUNT_GR FROM Ingredients WHERE Ingredient_ID="+ingredient_ID+" ;");
+            rs.next();
+            ingredientsAmounts = rs.getInt("INGREDIENT_INVENTORY_AMOUNT_GR");
         }catch (Exception e){
             System.out.println("Error "+e);
         }
@@ -138,11 +140,8 @@ public class Inventory {
             System.out.print("continue?:Y or N\n");
             auxExit = scanner.next();
             //update the inventory
-            int currentAmount = 0;
             try{
-                ResultSet ingredientsAmounts = getIngredientsAmounts();
-                ingredientsAmounts.absolute(ingredientID);
-                currentAmount = ingredientsAmounts.getInt(ingredientID);
+                int currentAmount = getIngredientAmountByID(ingredientID);
                 updateIngredientDatabaseValue("INGREDIENT_INVENTORY_AMOUNT_GR","'"+(amount_gr+currentAmount)+"'",ingredientID);
                 ResultSet ingredientUnitPrices = getIngredientUnitPrices();
                 ingredientUnitPrices.absolute(ingredientID);

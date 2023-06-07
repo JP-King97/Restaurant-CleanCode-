@@ -44,7 +44,6 @@ public class Order {
             rs.next();
             recipeName = rs.getString("recipe_name");
             dishType = rs.getString("dish_type");
-
         }catch (Exception e){
             System.out.println("Error "+e);
         }
@@ -54,7 +53,6 @@ public class Order {
 
     public double sellADish(int recipeID){
         Dish dish = selectTypeOfDish(recipeID);
-
         String recipeName = null;
         String dishType=null;
         try {
@@ -62,7 +60,6 @@ public class Order {
             rs.next();
             recipeName = rs.getString("recipe_name");
             dishType = rs.getString("dish_type");
-
         }catch (Exception e){
             System.out.println("Error "+e);
         }
@@ -72,14 +69,11 @@ public class Order {
 
     private void takeAllIngredientsAmountsForRecipes(Dish dish, Inventory inventory){
         ResultSet IDs = dish.getIngredientsIDs();
-        ResultSet inventoryAmounts = inventory.getIngredientsAmounts();
-
         try{
             while(IDs.next()){
                 int ID = IDs.getInt("INGREDIENT_ID");
                 int recipeAmount = dish.getIngredientAmount(ID);
-                inventoryAmounts.next();
-                int inventoryAmount = inventoryAmounts.getInt("INGREDIENT_INVENTORY_AMOUNT_GR");
+                int inventoryAmount = inventory.getIngredientAmountByID(ID);
                 enoughIngredientAmountCheck(inventory,ID,recipeAmount,inventoryAmount);
             }
         }catch(Exception e){
@@ -128,7 +122,7 @@ public class Order {
                         "SET State = 'Delivered'" +
                         "WHERE Order_ID = "+orderID+";");
             } if(action.equals("make")){
-                dbConnection.executeQuery("INSERT INTO Orders( Recipe_name, Type_of_dish, State) VALUES ('"+Recipe_name+"','"+Type_of_dish+"','Requested')");
+                dbConnection.executeUpdate("INSERT INTO Orders( Recipe_name, Type_of_dish, State) VALUES ('"+Recipe_name+"','"+Type_of_dish+"','Requested')");
             }
         }catch(Exception e){
             System.out.println("Error "+e);
