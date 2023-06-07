@@ -15,6 +15,7 @@ public class SyncRecipesDatabase {
 
     public void syncDatabaseWithExcel(){
         erasePreviousRecipeInformation();
+        createRecipesTable();
         //add new information
         ExcelFileReader reader = new ExcelFileReader("Recipes");
         int excelNumberOfRecipes = reader.getNumericalValueFromExcelFile(30,4).intValue();
@@ -40,7 +41,19 @@ public class SyncRecipesDatabase {
             while(rs.next()){
                 dbConnection.executeUpdate("DROP TABLE "+rs.getString("Recipe_Name")+";");
             }
-            dbConnection.executeUpdate("DELETE FROM Recipes;");
+            dbConnection.executeUpdate("DROP TABLE Recipes;");
+        }catch(Exception e){
+            System.out.println("Error "+e);
+        }
+    }
+
+    private void createRecipesTable(){
+        try{
+            dbConnection.executeUpdate("CREATE TABLE Recipes(" +
+                    "Recipe_ID smallserial NOT NULL," +
+                    "Recipe_Name varchar(40) NOT NULL," +
+                    "Number_Of_Ingredients int NOT NULL," +
+                    "Dish_Type varchar(10) NOT NULL);");
         }catch(Exception e){
             System.out.println("Error "+e);
         }

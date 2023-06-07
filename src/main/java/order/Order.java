@@ -92,23 +92,6 @@ public class Order {
     private void takeIngredientAmountFromInventory( Inventory inventory, int ingredientID, int newIngredientAmount){
         inventory.updateIngredientAmount(ingredientID,newIngredientAmount);
     }
-
-    private void createTable (){
-        try {
-            ResultSet rs = dbConnection.executeQuery("SELECT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = 'orders');");
-            rs.next();
-            String tableExists = rs.getString(1);
-            if(tableExists.equals("f")){
-                dbConnection.executeQuery("CREATE TABLE Orders(" +
-                                              "Order_ID smallserial NOT NULL," +
-                                              "Recipe_name varchar(40) NOT NULL," +
-                                              "Type_of_dish varchar(20) NOT NULL," +
-                                              "State varchar(15) NOT NULL);");
-            }
-        }catch(Exception e){
-            System.out.println("Error "+e);
-        }
-    }
 //
 
     public void updateOrderHistory(String action, String Recipe_name, String Type_of_dish){
@@ -129,16 +112,11 @@ public class Order {
         }
     }
 
-    public void resetValues(){
-
-    }
-
 
     public static void main(String[] args) {
         DatabaseConnection dbConnection = new DatabaseConnection();
         dbConnection.connect("family_restaurant_db", "postgres", "j3141592");
         Order order = new Order(dbConnection);
-        order.createTable();
        // order.updateOrderHistory("sell","Vegan Pasta","FOOD");
      //  try {
      //     // ResultSet rs = dbConnection.executeQuery("SELECT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = 'orders');");

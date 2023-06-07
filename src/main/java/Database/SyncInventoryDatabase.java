@@ -14,8 +14,8 @@ public class SyncInventoryDatabase {
     }
 
     public void syncDatabaseWithExcel(){
-        createTables();
         erasePreviousInventoryInformation();
+        createTable();
         ExcelFileReader reader = new ExcelFileReader("Ingredients");
         int excelNumberOfIngredients = reader.getNumericalValueFromExcelFile(0,5).intValue();
         Inventory inventory = new Inventory(dbConnection);
@@ -28,14 +28,10 @@ public class SyncInventoryDatabase {
         System.out.println("Inventory synchronized");
     }
 
-    private void createTables(){
+    private void createTable(){
         try{
-            dbConnection.executeQuery("CREATE TABLE Recipes(" +
-                                        "Recipe_ID smallserial NOT NULL," +
-                                        "Recipe_Name varchar(40) NOT NULL," +
-                                        "Number_Of_Ingredients int NOT NULL," +
-                                        "Dish_Type varchar(10) NOT NULL);");
-            dbConnection.executeQuery("CREATE TABLE Ingredients(" +
+
+            dbConnection.executeUpdate("CREATE TABLE Ingredients(" +
                                         "Ingredient_ID smallserial NOT NULL," +
                                         "Ingredient_Name varchar(40) NOT NULL," +
                                         "Ingredient_Inventory_Amount_gr int NOT NULL," +
@@ -47,7 +43,7 @@ public class SyncInventoryDatabase {
 
     private void erasePreviousInventoryInformation(){
         try{
-            dbConnection.executeUpdate("DELETE FROM Ingredients");
+            dbConnection.executeUpdate("DROP TABLE Ingredients");
         }catch(Exception e){
             System.out.println("Error "+e);
         }

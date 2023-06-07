@@ -17,7 +17,7 @@ public class MoneyAccount {
 
     public double getCurrentBalance() {
         try {
-            resultSet = dbConnection.executeQuery("SELECT CURRENT_MONEY_ACCOUNT FROM Account_History");
+            resultSet = dbConnection.executeQuery("SELECT CURRENT_MONEY_ACCOUNT FROM money_account_history");
             resultSet.last();
             currentBalance = resultSet.getDouble("CURRENT_MONEY_ACCOUNT");
         } catch (Exception e) {
@@ -28,12 +28,12 @@ public class MoneyAccount {
 
     public void withdrawal (double withdrawal){
          double newBalance = (getCurrentBalance() - withdrawal);
-        dbConnection.executeUpdate("INSERT INTO Account_History(CURRENT_MONEY_ACCOUNT) VALUES ('"+newBalance+"');");
+        dbConnection.executeUpdate("INSERT INTO money_account_history(CURRENT_MONEY_ACCOUNT) VALUES ('"+newBalance+"');");
     }
 
     public void deposit (double payment){
         double newBalance = (getCurrentBalance() + payment);
-        dbConnection.executeUpdate("INSERT INTO Account_History(CURRENT_MONEY_ACCOUNT) VALUES ('"+newBalance+"');");
+        dbConnection.executeUpdate("INSERT INTO money_account_history(CURRENT_MONEY_ACCOUNT) VALUES ('"+newBalance+"');");
     }
 
 }

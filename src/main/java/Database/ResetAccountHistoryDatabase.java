@@ -2,6 +2,8 @@ package Database;
 
 import connection.DatabaseConnection;
 
+import java.sql.ResultSet;
+
 public class ResetAccountHistoryDatabase {
 
     private DatabaseConnection dbConnection;
@@ -15,19 +17,26 @@ public class ResetAccountHistoryDatabase {
     }
 
     private void createTable(){
-        try{
-            dbConnection.executeQuery("CREATE TABLE account_history(" +
-                                            "movement_id smallserial NOT NULL," +
-                                            "current_money_account double precision NOT NULL);");
-            dbConnection.executeUpdate("INSERT INTO Account_history (Current_Money_Account) VALUES (100000);");
+
+        try {
+            ResultSet rs = dbConnection.executeQuery("SELECT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = 'money_account_history');");
+            rs.next();
+            String tableExists = rs.getString(1);
+            if(tableExists.equals("f")){
+                dbConnection.executeUpdate("CREATE TABLE money_account_history(" +
+                        "movement_id smallserial NOT NULL," +
+                        "current_money_account double precision NOT NULL);");
+                dbConnection.executeUpdate("INSERT INTO money_account_history (Current_Money_Account) VALUES (100000);");
+            }
         }catch(Exception e){
             System.out.println("Error "+e);
         }
+
     }
 
     private void erasePreviousInformation(){
         try{
-            dbConnection.executeQuery("DROP TABLE account_history;");
+            dbConnection.executeUpdate("DROP TABLE money_account_history;");
         }catch(Exception e){
             System.out.println("Error "+e);
         }
