@@ -16,7 +16,7 @@ public class ResetOrdersDatabase {
     private void createTable(){
         try{
             dbConnection.executeQuery("CREATE TABLE orders(" +
-                                         "orders_ID smallserial NOT NULL," +
+                                         "order_ID smallserial NOT NULL," +
                                          "recipe_name varchar(40) NOT NULL," +
                                          "type_of_dish varchar(10) NOT NULL," +
                                          "state varchar(15) NOT NULL);");

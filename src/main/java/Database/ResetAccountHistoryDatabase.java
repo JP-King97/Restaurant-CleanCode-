@@ -18,7 +18,8 @@ public class ResetAccountHistoryDatabase {
         try{
             dbConnection.executeQuery("CREATE TABLE account_history(" +
                                             "movement_id smallserial NOT NULL," +
-                                            "current_money_account int NOT NULL);");
+                                            "current_money_account double precision NOT NULL);");
+            dbConnection.executeUpdate("INSERT INTO Account_history (Current_Money_Account) VALUES (100000);");
         }catch(Exception e){
             System.out.println("Error "+e);
         }

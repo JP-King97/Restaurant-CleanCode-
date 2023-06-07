@@ -40,10 +40,6 @@ public class SyncInventoryDatabase {
                                         "Ingredient_Name varchar(40) NOT NULL," +
                                         "Ingredient_Inventory_Amount_gr int NOT NULL," +
                                         "Ingredient_Unit_Price double precision NOT NULL);");
-            dbConnection.executeQuery("CREATE TABLE Account_History(" +
-                                        "Movement_ID smallserial NOT NULL," +
-                                        "Current_Money_Account double precision NOT NULL);");
-            dbConnection.executeUpdate("INSERT INTO Account_history (Current_Money_Account) VALUES (100000);");
         }catch(Exception e){
             System.out.println("Error "+e);
         }
