@@ -32,6 +32,29 @@ public class Recipe {
         }
         return recipes;
     }
+
+    public double getRecipeCalories(){
+        double recipeTotalCal=0;
+        try{
+            ResultSet rsName = dbConnection.executeQuery("SELECT recipe_name FROM recipes WHERE recipe_ID = "+recipeID+";");
+            rsName.next();
+            ResultSet rsCalories = dbConnection.executeQuery("SELECT ingredient_id, ingredient_calories FROM ingredients;");
+            String recipeName = rsName.getString("recipe_name");
+            ResultSet rsID = getIngredientsIDs();
+
+            while(rsID.next()){
+                int ingredientID = rsID.getInt("ingredient_ID");
+                rsCalories.next();
+                double caloriesPerGr = rsCalories.getDouble("ingredient_calories");
+                int ingredientAmount = getIngredientAmount(ingredientID);
+                double ingredientTotalCal = (caloriesPerGr * ingredientAmount);
+                recipeTotalCal=recipeTotalCal+ingredientTotalCal;
+            }
+        }catch(Exception e){
+            System.out.println("Error "+e);
+        }
+        return recipeTotalCal;
+    }
     //////////////////////////////////////////
     public int getNumberOfIngredients(){
         int ingredients=0;

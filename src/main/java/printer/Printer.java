@@ -66,12 +66,12 @@ public class Printer {
      * Print all the listed recipes and their IDs as well.
      */
     public void currentRecipeList(DatabaseConnection dbConnection){
-        System.out.printf("%10s||%20s%n","ID","RECEIPT");
+        System.out.printf("%10s%n || %30s%n || %15s%n", "ID", "RECEIPT", "CALORIES");
         try{
             Recipe numberOfRecipes = new Recipe(dbConnection);
             for(int i=1; i <= numberOfRecipes.getNumberOfRecipes() ; i++){
                 Recipe recipe = new Recipe(dbConnection,i);
-                System.out.printf("%10s||%30s%n",i, recipe.getRecipeName());
+                System.out.printf("%10s%n || %30s%n || %15.2f%n",i, recipe.getRecipeName(),recipe.getRecipeCalories());
             }
         }catch(Exception e){
             System.out.println("Error "+e);

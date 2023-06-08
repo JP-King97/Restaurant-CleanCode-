@@ -113,11 +113,12 @@ public class Inventory {
     public void addNewIngredient(int ingredient_ID){
         ExcelFileReader reader = new ExcelFileReader("Ingredients");
         try{
-                dbConnection.executeUpdate("INSERT INTO Ingredients (Ingredient_ID, Ingredient_Name, Ingredient_Inventory_Amount_gr, Ingredient_Unit_Price) " +
+                dbConnection.executeUpdate("INSERT INTO Ingredients (Ingredient_ID, Ingredient_Name, Ingredient_Inventory_Amount_gr, Ingredient_Unit_Price, Ingredient_Calories) " +
                         "VALUES ("+reader.getNumericalValueFromExcelFile(ingredient_ID+1,0)+"," +
                         " '"+reader.getStringValueFromExcelFile(ingredient_ID+1,1)+"'," +
                         " "+reader.getNumericalValueFromExcelFile(ingredient_ID+1,2).intValue()+"," +
-                        " '"+reader.getNumericalValueFromExcelFile(ingredient_ID+1,3)+"');");
+                        " "+reader.getNumericalValueFromExcelFile(ingredient_ID+1,3)+"," +
+                        " "+reader.getNumericalValueFromExcelFile(ingredient_ID+1, 4)+");");
         }catch(Exception e){
             System.out.println("Error "+e);
         }

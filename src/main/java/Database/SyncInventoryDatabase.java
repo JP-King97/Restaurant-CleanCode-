@@ -35,7 +35,8 @@ public class SyncInventoryDatabase {
                                         "Ingredient_ID smallserial NOT NULL," +
                                         "Ingredient_Name varchar(40) NOT NULL," +
                                         "Ingredient_Inventory_Amount_gr int NOT NULL," +
-                                        "Ingredient_Unit_Price double precision NOT NULL);");
+                                        "Ingredient_Unit_Price double precision NOT NULL," +
+                                        "Ingredient_Calories double precision NOT NULL);");
         }catch(Exception e){
             System.out.println("Error "+e);
         }
