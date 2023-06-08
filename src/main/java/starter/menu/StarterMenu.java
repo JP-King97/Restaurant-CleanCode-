@@ -85,10 +85,10 @@ public class StarterMenu {
                     printSomething(()-> System.out.println("These are the dishes requested but not delivered: "));
                     printer.currentDishesNotDelivered(order.getNotDeliveredDishes());
                     printSomething(()-> System.out.println("---Please introduce the order ID that you want to sell--- "));
-                    printSomething(() -> System.out.println("Please introduce the recipe ID:"));
+                    printSomething(() -> System.out.println("Please introduce the order ID:"));
                     try {
-                        int recipeID = scanner.nextInt();
-                        account.deposit(order.sellADish(recipeID));
+                        int orderID = scanner.nextInt();
+                        account.deposit(order.sellADish(orderID));
                     } catch (Exception e) {
                         printSomething(() -> System.out.println("invalid input, please try it again"));
                         scanner.nextLine();

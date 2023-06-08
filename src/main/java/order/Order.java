@@ -47,24 +47,50 @@ public class Order {
         }catch (Exception e){
             System.out.println("Error "+e);
         }
-        updateOrderHistory("make",recipeName,dishType);
-
+        updateOrderHistory("make",recipeName, recipeID, dishType);
     }
 
-    public double sellADish(int recipeID){
-        Dish dish = selectTypeOfDish(recipeID);
+   public void updateOrderHistory(String action, String recipe_name, int recipe_ID, String Type_of_dish){
+       try {
+           if(action.equals("make")){
+               dbConnection.executeUpdate("INSERT INTO Orders( Recipe_name, Recipe_ID, Type_of_dish, State) VALUES ('"+recipe_name+"','"+recipe_ID+"','"+Type_of_dish+"','Requested')");
+           }
+       }catch(Exception e){
+           System.out.println("Error "+e);
+       }
+   }
+
+
+
+    public double sellADish(int orderID){
+
         String recipeName = null;
         String dishType=null;
+        int recipeID=0;
         try {
-            ResultSet rs = dbConnection.executeQuery("SELECT recipe_name, dish_type FROM Recipes");
+            ResultSet rs = dbConnection.executeQuery("SELECT recipe_id FROM Orders WHERE order_ID = "+orderID+";");
             rs.next();
-            recipeName = rs.getString("recipe_name");
-            dishType = rs.getString("dish_type");
+            recipeID = rs.getInt("recipe_id");
         }catch (Exception e){
             System.out.println("Error "+e);
         }
-        updateOrderHistory("sell",recipeName,dishType);
+        updateOrderHistory("sell", orderID);
+        Dish dish = selectTypeOfDish(recipeID);
         return dish.getSellingPrice();
+    }
+
+    public void updateOrderHistory(String action, int orderID){
+        try {
+
+            if (action.equals("sell")){
+                System.out.println(orderID);
+                dbConnection.executeUpdate("UPDATE Orders " +
+                        "SET State = 'Delivered'" +
+                        "WHERE Order_ID = "+orderID+";");
+            }
+        }catch(Exception e){
+            System.out.println("Error "+e);
+        }
     }
 
     private void takeAllIngredientsAmountsForRecipes(Dish dish, Inventory inventory){
@@ -94,24 +120,8 @@ public class Order {
     }
 //
 
-    //// ESTA MALO
-    public void updateOrderHistory(String action, String Recipe_name, String Type_of_dish){
-        try {
-            ResultSet rs = dbConnection.executeQuery("SELECT MAX(Order_ID) FROM Orders;");
-            rs.next();
-            int orderID = rs.getInt(1);
-            if (action.equals("sell")){
-                System.out.println(orderID);
-                dbConnection.executeUpdate("UPDATE Orders " +
-                        "SET State = 'Delivered'" +
-                        "WHERE Order_ID = "+orderID+";");
-            } if(action.equals("make")){
-                dbConnection.executeUpdate("INSERT INTO Orders( Recipe_name, Type_of_dish, State) VALUES ('"+Recipe_name+"','"+Type_of_dish+"','Requested')");
-            }
-        }catch(Exception e){
-            System.out.println("Error "+e);
-        }
-    }
+
+
 
     public ResultSet getNotDeliveredDishes(){
         ResultSet rs = null;

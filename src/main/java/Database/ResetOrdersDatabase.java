@@ -24,6 +24,7 @@ public class ResetOrdersDatabase {
                 dbConnection.executeUpdate("CREATE TABLE Orders(" +
                         "Order_ID smallserial NOT NULL," +
                         "Recipe_name varchar(40) NOT NULL," +
+                        "Recipe_ID int NOT NULL," +
                         "Type_of_dish varchar(20) NOT NULL," +
                         "State varchar(15) NOT NULL);");
             }
