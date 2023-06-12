@@ -49,7 +49,8 @@ public class StarterMenu {
                     try {
                         inventory.buyIngredients(scanner, account);
                     } catch (Exception e) {
-                        printSomething(() -> System.out.println("Ingredient no founded"));
+                        e.printStackTrace();
+                        //printSomething(() -> System.out.println("Ingredient no founded"));
                     }
                     break;
                 case 4:

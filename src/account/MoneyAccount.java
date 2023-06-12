@@ -18,12 +18,12 @@ public class MoneyAccount {
     }
 
     public Double Withdrawal (Double withdrawal){
-        currentBalance.put(getMoneyAccountLength()+1,currentBalance.get(getMoneyAccountLength()) - withdrawal);
+        currentBalance.put(getMoneyAccountLength(),currentBalance.get(getMoneyAccountLength()-1) - withdrawal);
         return currentBalance.get(getMoneyAccountLength());
     }
 
     public Double Deposit (Double payment){
-        currentBalance.put(getMoneyAccountLength()+1, currentBalance.get(getMoneyAccountLength()) + payment);
+        currentBalance.put(getMoneyAccountLength(), currentBalance.get(getMoneyAccountLength()-1) + payment);
         return currentBalance.get(getMoneyAccountLength());
     }
 }
