@@ -43,7 +43,7 @@ public class StringDataModifier {
         {
             try {
                 bReader = new BufferedReader(new FileReader(path));
-                for(int i=0; i<row;i++){
+                for(int i=0; i<=row;i++){
                     line = bReader.readLine();
                     values = line.split(";");
                 }

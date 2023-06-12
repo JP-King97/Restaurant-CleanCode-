@@ -94,7 +94,7 @@ public class Recipe {
     public Map<Integer, String> getAvailableRecipes(){
         StringDataModifier stringDataModifier = new StringDataModifier();
         for (int i = 0; i< getNumberOfRecipes(); i++){
-            recipesList.put(i,stringDataModifier.getStringValueFromExcel(31+i,10));
+            recipesList.put(i,stringDataModifier.getStringValueFromExcel(30+i,10));
         }
         return recipesList;
     }
