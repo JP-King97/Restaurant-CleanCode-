@@ -47,7 +47,7 @@ public class Printer {
     public void currentIngredientInventory(Inventory inventory){
         System.out.printf("%15s||%15s%n","INGREDIENTS","QUANTITIES");
         for (int i=0;i<inventory.getIngredientsAmounts().size();i++){
-            System.out.printf("%15s%15s%n",inventory.getIngredientsNames().get(i),inventory.getIngredientsAmounts().get(i).intValue());
+            System.out.printf("%15s%15s%n",inventory.getIngredientsNames().get(i+1),inventory.getIngredientsAmounts().get(i).intValue());
         }
     }
 
