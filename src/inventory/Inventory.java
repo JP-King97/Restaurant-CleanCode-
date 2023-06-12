@@ -89,7 +89,7 @@ public class Inventory {
             System.out.print("continue?:Y or N\n");
             auxExit = scanner.next();
             //update the inventory
-            Double currentAmount = getIngredientsAmounts().get(ingredientID);
+            Double currentAmount = getIngredientsAmounts().get(ingredientID-1);
             updatedAmounts(ingredientID,(amount_gr+currentAmount));
             paymentAmount = paymentAmount + ((getIngredientsUnitPrices().get(ingredientID+1))*(amount_gr));
         }while(!Objects.equals(auxExit, "N"));
@@ -97,7 +97,7 @@ public class Inventory {
     }
 
     public void updatedAmounts(int ingredientID,Double newAmount){
-        ingredientsAmounts.put(ingredientID,newAmount);
+        ingredientsAmounts.put(ingredientID-1,newAmount);
     }
 
 }
