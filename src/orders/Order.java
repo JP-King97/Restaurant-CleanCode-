@@ -1,10 +1,7 @@
 package orders;
 
 import inventory.Inventory;
-import menu.Dessert;
-import menu.Dish;
-import menu.Drink;
-import menu.Food;
+import menu.*;
 
 import java.util.Map;
 
@@ -43,19 +40,20 @@ public class Order {
      * @return a Dish object instantiated with a specific child class
      */
     private Dish selectTypeOfDish(int recipeID){
+        Recipe recipe = new Recipe(recipeID);
         Dish dish;
-        switch (recipeID) {
-            case 0, 1, 2 -> {
+        switch (recipe.getRecipeType()) {
+            case "FOOD" -> {
                 //typeOfDish = "FOOD";
                 dish = new Food(recipeID);
                 return dish;
             }
-            case 3, 4, 5, 6, 7 -> {
+            case "DRINK" -> {
                 //typeOfDish = "DRINK";
                 dish = new Drink(recipeID);
                 return dish;
             }
-            case 8, 9, 10 -> {
+            case "DESSERT" -> {
                 //typeOfDish = "DESSERT";
                 dish = new Dessert(recipeID);
                 return dish;
@@ -75,7 +73,7 @@ public class Order {
      */
     private void takeAllIngredientsAmountsForRecipe(Dish dish, Inventory inventory){
         dish.setRecipeIngredientsIDs();
-        Map<Integer,Double> ingredientsID = dish.getRecipesIngredientsIDs();
+        Map<Integer,Integer> ingredientsID = dish.getRecipesIngredientsIDs();
         Map<Integer,Double> recipeIngredientAmounts = dish.getRecipeIngredientsAmounts();
         Map<Integer,Double> ingredientsAmounts = inventory.getIngredientsAmounts();
         for(int i = 0; i< recipeIngredientAmounts.size(); i++){

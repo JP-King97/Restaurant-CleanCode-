@@ -12,34 +12,34 @@ public class Inventory {
     private Map<Integer,Double> ingredientsAmounts = new HashMap<>();
     private Map<Integer,String> ingredientsNames = new HashMap<>();
     private Map<Integer,Double> ingredientsUnitPrices = new HashMap<>();
+    private Map<Integer, Double> ingredientsCalories = new HashMap<>();
 
     public Inventory(){
     }
 
     public void setInitialAmounts(Scanner scanner){
-        InitialValues method = new InitialValues(ingredientsAmounts, ingredientsNames);
+        InitialValues method = new InitialValues(ingredientsAmounts, ingredientsNames,ingredientsUnitPrices,ingredientsCalories);
         int option=0;
         do{
             try {
                 option = scanner.nextInt();
-                switch (option){
-                    case 1:
-                        method.setValuesFromExcel();
-                        break;
-                    case 2:
-                        method.setRandomValues();
-                        break;
-                    case 3:
-                        method.enterValuesManually();
-                        break;
-                    default:
-                        System.out.println("Option not valid, try it again");
-                        break;
+                switch (option) {
+                    case 1 -> method.setValuesFromExcel();
+                    case 2 -> method.setRandomValues();
+                    case 3 -> method.enterValuesManually();
+                    default -> System.out.println("Option not valid, try it again");
                 }
+                ingredientsAmounts = method.getIngredientsAmounts();
+                ingredientsNames = method.getIngredientsNames();
+                ingredientsUnitPrices = method.getIngredientsUnitPrices();
+                ingredientsCalories = method.getIngredientsCalories();
             }catch (Exception e){
+                e.printStackTrace();
                 System.out.println("Option not valid, try it again");
                 scanner.nextLine();
             }
+
+
         }while(option != 1 && option != 2 && option != 3);
     }
 
@@ -49,14 +49,16 @@ public class Inventory {
 
     public Map<Integer,Double> getIngredientsUnitPrices(){ return ingredientsUnitPrices;}
 
-    public Map<Integer,Double> setIngredientsUnitPricesFromExcelFile(){
-        NumericalDataModifier numericalReader = new NumericalDataModifier("Prices",ingredientsUnitPrices);
-        int numberOfIngredients = 36;
-        for(int i = 0; i< numberOfIngredients; i++){
-            ingredientsUnitPrices.put(i,numericalReader.getNumericalValueFromExcelFile(i,1));
-        }
-        return ingredientsUnitPrices;
-    }
+    public Map<Integer,Double> getIngredientsCalories(){ return ingredientsCalories;}
+
+  //  public Map<Integer,Double> setIngredientsUnitPricesFromExcelFile(){
+  //      NumericalDataModifier numericalReader = new NumericalDataModifier(ingredientsUnitPrices);
+  //      int numberOfIngredients = 36; //Make it dynamic
+  //      for(int i = 0; i< numberOfIngredients; i++){
+  //          ingredientsUnitPrices.put(i,numericalReader.getNumericalValueFromExcel(i,1));
+  //      }
+  //      return ingredientsUnitPrices;
+  //  }
 
     /**
      * reduce the money in the account by taking out the payment amount for the purchased ingredients

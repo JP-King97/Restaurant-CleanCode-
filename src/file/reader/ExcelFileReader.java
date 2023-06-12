@@ -8,55 +8,82 @@ public class ExcelFileReader {
 
     private String line;
 
-    BufferedReader bReader;
-
-    {
-        try {
-            bReader = new BufferedReader(new FileReader(path));
-
-            while((line = bReader.readLine()) != null){
-
-            }
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public ExcelFileReader() {
     }
 
+    public void getCellValues(int row, int column) {
 
-/////////////////////////////////////
+        BufferedReader bReader;
 
-  //  protected String sheetName;
-  //  public ExcelFileReader(String sheetName){
-  //      this.sheetName = sheetName;
-  //  }
+        {
+            try {
+                bReader = new BufferedReader(new FileReader(path));
+                for(int i=0; i<row;i++){
+                    line = bReader.readLine();
+                    String[] values = line.split(";");
+                    System.out.println(values[column-1]);
+                }
+                while ((line = bReader.readLine()) != null) {
+                    String[] values = line.split(";");
+                    System.out.println(values[0]);
+
+                }
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+   // private int tableLocation(String tableName){
+   //     int[] cellCoordinate = new int[2];
+   //     switch(tableName) {
+   //         case "ID":
+   //             cellCoordinate[0] = 2; //row
+   //             cellCoordinate[1] = 1; //column
+   //             break;
+   //         case "IngredientName":
+   //             cellCoordinate[0] = 2; //row
+   //             cellCoordinate[1] = 2; //column
+   //             break;
+   //         case "IngredientQuantities":
+   //             cellCoordinate[0] = 2; //row
+   //             cellCoordinate[1] = 3; //column
+   //             break;
+   //         case "IngredientUnitPrice":
+   //             cellCoordinate[0] = 2; //row
+   //             cellCoordinate[1] = 4; //column
+   //             break;
+   //         case "IngredientCalories":
+   //             cellCoordinate[0] = 2; //row
+   //             cellCoordinate[1] = 5; //column
+   //             break;
 //
-  //  /**
-  //   * Find the information of the sheet in the Excel file and turn it into a Java object
-  //   *
-  //   * @return the sheet object that contain the desiree information
-  //   */
-  //  private XSSFSheet getExcelSheet(){
-  //      FileInputStream fileInputStream;
-  //      XSSFWorkbook xssfWorkbook;
-  //      try{
-  //          fileInputStream = new FileInputStream("Inventory.xlsx");
-  //          xssfWorkbook = new XSSFWorkbook(fileInputStream);
-  //      }catch (IOException e) {throw new RuntimeException(e);}
-  //      return xssfWorkbook.getSheet(sheetName);
-  //  }
+   //     }
 //
-  //  /**
-  //   * Find the information of the cell in the sheet of the Excel file and turn it into a Java object
-  //   *
-  //   * @param rowNumber the position of the row where the information is located (starting on 0)
-  //   * @param columnNumber the position of the column in the row where the information is located (starting on 0)
-  //   * @return the cell object that contain the desiree information
-  //   */
-  //  public XSSFCell getCellValue(int rowNumber, int columnNumber){
-  //      XSSFRow row = getExcelSheet().getRow(rowNumber);
-  //      return row.getCell(columnNumber);
-  //  }
+   //     //inventory(ingredients)
+   //     int[] IDs = {,};
+//
+   //     //recipes(list)
+//
+   //     //Vegan_Pasta
+   //     //MashedPotatoes_Chicken_Broccoli
+   //     //Hot_Spinach_Cream
+   //     //Oreo_Milkshake
+   //     //Juice_Fruit_Water
+   //     //Juice_Fruit_Milk
+   //     //Margarita
+   //     //Tequila_Sunrise
+   //     //Oreo_Cheesecake
+   //     //Lemon_Cake
+   //     //Passion_Fruit_Cake
+//
+   //     //*Orders' history
+   //     //*money account
+   // }
 
 }
+
+

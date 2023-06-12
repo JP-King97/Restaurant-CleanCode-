@@ -54,13 +54,14 @@ public class Printer {
     /**
      * Print all the listed recipes and their IDs as well.
      */
-    public void currentRecipeList(){
-        Recipe recipe = new Recipe();
-        int numberOfRecipes = recipe.getNumberOfRecipes();
-        Map<Integer,String> availableReceipts = recipe.getAvailableRecipes();
-        System.out.printf("%10s||%20s%n","ID","RECEIPT");
+    public void currentRecipeList(Inventory inventory){
+        Recipe recipe1 = new Recipe(1);
+        int numberOfRecipes = recipe1.getNumberOfRecipes();
+        Map<Integer,String> availableReceipts = recipe1.getAvailableRecipes();
+        System.out.printf("%10s || %30s || %15s%n", "ID", "RECEIPT", "CALORIES");
         for (int i = 0; i< numberOfRecipes; i++){
-            System.out.printf("%10s||%20s%n",i, availableReceipts.get(i));
+            Recipe recipe2 = new Recipe(i+1);
+            System.out.printf("%10s || %30s || %15.2f%n",i+1, availableReceipts.get(i),recipe2.getRecipeCalories(inventory));
         }
     }
 }

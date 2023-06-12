@@ -24,7 +24,7 @@ public class StarterMenu {
                 "3. Set the values manually\n"));
 
         inventory.setInitialAmounts(scanner);
-        inventory.setIngredientsUnitPricesFromExcelFile();
+        //inventory.setIngredientsUnitPricesFromExcelFile();
         int optionSelected;
         do {
             try {
@@ -53,7 +53,7 @@ public class StarterMenu {
                     }
                     break;
                 case 4:
-                    printer.currentRecipeList();
+                    printer.currentRecipeList(inventory);
                     break;
                 case 5:
                     printSomething(() -> System.out.println("Please introduce the recipe ID:"));

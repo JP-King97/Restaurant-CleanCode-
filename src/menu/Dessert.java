@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Dessert extends Dish{
     private final int recipeID;
-    private final Map<Integer,Integer> ingredientsCalories = new HashMap<>();
+   // private final Map<Integer,Double> ingredientsCalories = new HashMap<>();
 
     public Dessert(int recipeID){
         super(recipeID);
@@ -22,7 +22,6 @@ public class Dessert extends Dish{
      */
     @Override
     public double getProductionCost() {
-
         switch (recipeID) {
             case 8, 9, 10 -> productionCost = (int) (getIngredientsTotalPrice() * 0.12);
             default -> System.out.println("Dessert not founded");
@@ -30,13 +29,13 @@ public class Dessert extends Dish{
         return productionCost;
     }
 
-    public int getCalories(){
-        NumericalDataModifier numericalDataModifier = new NumericalDataModifier( "Calories");
-        setRecipeIngredientsIDs();
-        int calories=0;
-        for (int i=0;i<getNumberOfIngredients();i++){
-            calories = (int) (calories + numericalDataModifier.getNumericalValueFromExcelFile((recipeIngredientsIDs.get(i).intValue()+1),1));
-        }
-        return calories;
-    }
+   // public int getCalories(){
+   //     NumericalDataModifier numericalDataModifier = new NumericalDataModifier(ingredientsCalories);
+   //     setRecipeIngredientsIDs();
+   //     int calories=0;
+   //     for (int i=0;i<getNumberOfIngredients();i++){
+   //         calories = (int) (calories + numericalDataModifier.getNumericalValueFromExcel((recipeIngredientsIDs.get(i).intValue()+1),5));
+   //     }
+   //     return calories;
+   // }
 }
