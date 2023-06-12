@@ -10,9 +10,9 @@ public class Drink extends Dish{
     @Override
     public double getProductionCost() {
         switch (recipeID) {
-            case 3 -> productionCost = (int) (getIngredientsTotalPrice() * 0.15);
-            case 4, 5 -> productionCost = (int) (getIngredientsTotalPrice() * 0.10);
-            case 6, 7 -> productionCost = 400;
+            case 4 -> productionCost = (int) (getIngredientsTotalPrice() * 0.15);
+            case 5, 6 -> productionCost = (int) (getIngredientsTotalPrice() * 0.10);
+            case 7, 8 -> productionCost = 400;
             default -> System.out.println("Drink not founded");
         }
         return productionCost;

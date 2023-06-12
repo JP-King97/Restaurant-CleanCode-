@@ -36,6 +36,7 @@ public abstract class Dish extends Recipe{
      * @return Selling price of the selected dish
      */
     public Double getSellingPrice(){
+        getProductionCost();
         sellingPrice=productionCost+getIngredientsTotalPrice()+1000;
         return sellingPrice;
     }

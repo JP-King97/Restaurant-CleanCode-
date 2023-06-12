@@ -116,6 +116,6 @@ public class Order {
     public static void main(String[] args) {
         Order order = new Order();
         Inventory inventory = new Inventory();
-        order.makeADish(1,inventory);
+        double sellingPrice= order.sellADish(1);
     }
 }

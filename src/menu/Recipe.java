@@ -64,7 +64,7 @@ public class Recipe {
         NumericalDataModifier numericalDataModifier = new NumericalDataModifier(recipeIngredientUnitPrices);
         setRecipeIngredientsIDs();
         for(int i = 0; i< getNumberOfIngredients(); i++){
-            recipeIngredientUnitPrices.put(i,numericalDataModifier.getNumericalValueFromExcel((int) ((recipeIngredientsIDs.get(i))+1),4) );
+            recipeIngredientUnitPrices.put(i,numericalDataModifier.getNumericalValueFromExcel((int) ((recipeIngredientsIDs.get(i))),4) );
         }
         return recipeIngredientUnitPrices;
     }

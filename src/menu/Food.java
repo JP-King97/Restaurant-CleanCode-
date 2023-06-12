@@ -16,9 +16,9 @@ public class Food extends Dish{
     @Override
     public double getProductionCost() {
         switch (recipeID) {
-            case 0 -> productionCost = 400;
-            case 1 -> productionCost = (getIngredientsTotalPrice() * 0.1);
-            case 2 -> productionCost = (getIngredientsTotalPrice() * 0.2);
+            case 1 -> productionCost = 400;
+            case 2 -> productionCost = (getIngredientsTotalPrice() * 0.1);
+            case 3 -> productionCost = (getIngredientsTotalPrice() * 0.2);
             default -> System.out.println("Food dish not founded");
         }
         return productionCost;
