@@ -33,13 +33,13 @@ public class StringDataModifier {
 
     /**
      *
-     * @param row the counting start at 1
+     * @param row the counting start at 0
      * @param column the counting start at 1
      * @return the value of the cell as a String variable
      */
     public String getStringValueFromExcel(int row, int column) {
         BufferedReader bReader;
-        String[] values = new String[28];
+        String[] values = new String[30];
         {
             try {
                 bReader = new BufferedReader(new FileReader(path));

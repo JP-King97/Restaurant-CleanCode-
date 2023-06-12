@@ -42,7 +42,8 @@ public class Order {
     private Dish selectTypeOfDish(int recipeID){
         Recipe recipe = new Recipe(recipeID);
         Dish dish;
-        switch (recipe.getRecipeType()) {
+        String type = recipe.getRecipeType();
+        switch (type) {
             case "FOOD" -> {
                 //typeOfDish = "FOOD";
                 dish = new Food(recipeID);
@@ -79,7 +80,7 @@ public class Order {
         for(int i = 0; i< recipeIngredientAmounts.size(); i++){
             int ingredientAmountRequired = recipeIngredientAmounts.get(i).intValue();
             int IDs = ingredientsID.get(i).intValue();
-            int inventoryIngredientAmount = ingredientsAmounts.get(IDs).intValue();
+            int inventoryIngredientAmount = ingredientsAmounts.get(IDs-1).intValue();
             enoughIngredientAmountCheck(IDs,ingredientAmountRequired,inventoryIngredientAmount,inventory);
         }
     }
@@ -110,5 +111,11 @@ public class Order {
      */
     private void takeIngredientAmountFromInventory(int ingredientID, int amount, Inventory inventory){
         inventory.updatedAmounts(ingredientID, (double) amount);
+    }
+
+    public static void main(String[] args) {
+        Order order = new Order();
+        Inventory inventory = new Inventory();
+        order.makeADish(1,inventory);
     }
 }

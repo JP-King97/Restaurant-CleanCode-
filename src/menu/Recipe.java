@@ -114,7 +114,7 @@ public class Recipe {
 
     public String getRecipeType(){
         StringDataModifier stringDataModifier = new StringDataModifier();
-        return stringDataModifier.getStringValueFromExcel(firstCell[0]+1,firstCell[1]+2);
+        return stringDataModifier.getStringValueFromExcel(firstCell[0],firstCell[1]+2);
     }
 
     public static void main(String[] args) {
