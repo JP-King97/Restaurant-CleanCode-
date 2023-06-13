@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class StringDataModifier {
 
-    private String path = "C:/Users/User/IdeaProjects/FamilyRestaurant_JavaNoDependencies/Inventory.csv";
+    private String path = "../Restaurant-CleanCode-/Inventory.csv";
     private String line;
     private Map<Integer,String> stringMap;
     public StringDataModifier( Map<Integer,String> stringMap){

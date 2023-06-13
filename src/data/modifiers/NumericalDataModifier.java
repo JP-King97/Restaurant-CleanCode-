@@ -5,7 +5,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Map;
 public class NumericalDataModifier {
-    private String path = "C:/Users/User/IdeaProjects/FamilyRestaurant_JavaNoDependencies/Inventory.csv";
+    private String path = "../Restaurant-CleanCode-/Inventory.csv";
     private String line;
     private Map<Integer,Double> numericalMap;
     public NumericalDataModifier( Map<Integer,Double> numericalMap){
