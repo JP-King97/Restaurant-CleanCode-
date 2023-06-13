@@ -68,10 +68,11 @@ public class StarterMenu {
                     }
                     break;
                 case 6:
-                    printSomething(() -> System.out.println("Please introduce the recipe ID:"));
+                    printer.currentRequestedDishes(order);
+                    printSomething(() -> System.out.println("Please introduce the order ID:"));
                     try {
-                        int recipeID = scanner.nextInt();
-                        account.Deposit(order.sellADish(recipeID));
+                        int orderID = scanner.nextInt();
+                        account.Deposit(order.sellADish(orderID));
                     } catch (Exception e) {
                         printSomething(() -> System.out.println("invalid input, please try it again"));
                         scanner.nextLine();

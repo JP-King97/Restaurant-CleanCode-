@@ -3,10 +3,22 @@ package orders;
 import inventory.Inventory;
 import menu.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Order {
+    private Map<Integer,Integer> requestedDishes = new HashMap<>();
+    private Map<Integer,Integer> deliveredDishes = new HashMap<>();
+   // private Map<Integer,Integer> ordersIDs = new HashMap<>();
     public Order(){
+    }
+
+    public Map<Integer, Integer> getRequestedDishes() {
+        return requestedDishes;
+    }
+
+    public Map<Integer, Integer> getDeliveredDishes() {
+        return deliveredDishes;
     }
 
     /**
@@ -15,19 +27,23 @@ public class Order {
      * @param recipeID
      * @param inventory
      */
-    public void makeADish(int recipeID, Inventory inventory){
+    public void makeADish(int recipeID, Inventory inventory) {
         Dish dish = selectTypeOfDish(recipeID);
         takeAllIngredientsAmountsForRecipe(dish, inventory);
+        int amountRequested = requestedDishes.size();
+        requestedDishes.put(amountRequested, recipeID);
     }
 
     /**
-     * Calculate the payment for the dish (selling price)
      *
-     * @param recipeID
-     *
-     * @return the selling price
+     * @param orderID
+     * @return
      */
-    public double sellADish(int recipeID){
+    public double sellADish(int orderID){
+        int recipeID = requestedDishes.get(orderID);
+        requestedDishes.remove(orderID);
+        int amountDelivered = deliveredDishes.size();
+        deliveredDishes.put(amountDelivered,recipeID);
         Dish dish = selectTypeOfDish(recipeID);
         return dish.getSellingPrice();
     }
