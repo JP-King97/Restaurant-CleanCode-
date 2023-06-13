@@ -23,7 +23,7 @@ For the desserts:
     
 Each dish also contains a selling price calculated by the production cost, the cost of the ingredients, and $1000. The desserts also include the number of calories in the recipe.
 
-The program first present the option of synchronize the database with the local Excel file:
+The program first present the option of synchronize the internal storage of the program with the local Excel file:
 
 ![image](https://github.com/JP-King97/Restaurant-CleanCode-/assets/102275322/0a12e00b-a09b-401a-8901-2e6385b5ab97)
 
@@ -32,8 +32,6 @@ The initial balance account is set in $100.000, after that the software is able 
 ![image](https://user-images.githubusercontent.com/102275322/232967634-677577e9-9f12-44bf-9463-620020363f99.png)
 
 Options 1, 2, and 4 only display information (account balance, ingredients inventory, and available dishes, in that order). On the other hand, options 3, 5, and 7 modify the information (add ingredients amounts, decrease ingredients amount, and add the payment for the dish). Last but not least option number 7 ends the program.
-
-A H2 database was included and the format of the Excel File is new.
 
 ![image](https://github.com/JP-King97/Restaurant-CleanCode-/assets/102275322/6a3b455b-34b2-4674-bddc-a60551b1966e)
 
